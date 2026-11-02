@@ -1,0 +1,429 @@
+[
+  {
+    "slug": "apt",
+    "title": "APT and parrot-upgrade",
+    "category": "System",
+    "description": "Manage Debian-format packages and dependencies. Use `apt` interactively; use `apt-get`/`apt-cache` for stable scripting interfaces.",
+    "path": "docs/programs/apt.md"
+  },
+  {
+    "slug": "bash",
+    "title": "Bash and core shell commands",
+    "category": "System",
+    "description": "Navigate folders, create files and understand shell operators before combining tool commands. cd is a shell builtin; many file utilities come from coreutils.",
+    "path": "docs/programs/bash.md"
+  },
+  {
+    "slug": "gnome-tweaks",
+    "title": "GNOME Tweaks and extensions",
+    "category": "System",
+    "description": "Adjust GNOME desktop preferences beyond the standard Settings app. GNOME extensions require GNOME Shell; they do not apply to MATE/KDE.",
+    "path": "docs/programs/gnome-tweaks.md"
+  },
+  {
+    "slug": "git",
+    "title": "Git",
+    "category": "System",
+    "description": "Track file history, inspect changes, and collaborate with a remote repository.",
+    "path": "docs/programs/git.md"
+  },
+  {
+    "slug": "python-venv",
+    "title": "Python virtual environments",
+    "category": "System",
+    "description": "Keep project dependencies separate from Parrot\u2019s system Python.",
+    "path": "docs/programs/python-venv.md"
+  },
+  {
+    "slug": "pip",
+    "title": "pip",
+    "category": "System",
+    "description": "Install Python libraries inside a project environment. Use `python -m pip` to select the pip belonging to that interpreter.",
+    "path": "docs/programs/pip.md"
+  },
+  {
+    "slug": "pipx",
+    "title": "pipx",
+    "category": "System",
+    "description": "Install Python command-line applications into separate environments while exposing their commands on your PATH.",
+    "path": "docs/programs/pipx.md"
+  },
+  {
+    "slug": "dpkg",
+    "title": "dpkg",
+    "category": "System",
+    "description": "Inspect and manage individual .deb packages and their installed file lists. APT sits above dpkg and resolves downloads/dependencies.",
+    "path": "docs/programs/dpkg.md"
+  },
+  {
+    "slug": "openvpn",
+    "title": "OpenVPN",
+    "category": "Networking",
+    "description": "Connect to a trusted VPN provider or lab using its issued profile and credentials.",
+    "path": "docs/programs/openvpn.md"
+  },
+  {
+    "slug": "ip",
+    "title": "ip",
+    "category": "Networking",
+    "description": "Inspect addresses, links, neighbors and routes using the modern iproute2 suite.",
+    "path": "docs/programs/ip.md"
+  },
+  {
+    "slug": "ss",
+    "title": "ss",
+    "category": "Networking",
+    "description": "Identify listening ports, active sockets and the processes that own them. Part of iproute2.",
+    "path": "docs/programs/ss.md"
+  },
+  {
+    "slug": "nmcli",
+    "title": "nmcli / NetworkManager",
+    "category": "Networking",
+    "description": "Inspect and manage connections controlled by NetworkManager. Distinguish a device from its saved connection profile.",
+    "path": "docs/programs/nmcli.md"
+  },
+  {
+    "slug": "dig",
+    "title": "dig",
+    "category": "Networking",
+    "description": "Query DNS records and inspect resolver answers. Both tools are supplied by BIND utilities on typical Debian-based installations.",
+    "path": "docs/programs/dig.md"
+  },
+  {
+    "slug": "nslookup",
+    "title": "nslookup",
+    "category": "Networking",
+    "description": "Query DNS records and inspect resolver answers. Both tools are supplied by BIND utilities on typical Debian-based installations.",
+    "path": "docs/programs/nslookup.md"
+  },
+  {
+    "slug": "getent",
+    "title": "getent",
+    "category": "Networking",
+    "description": "Query the system name-service configuration, including hosts files and DNS where configured.",
+    "path": "docs/programs/getent.md"
+  },
+  {
+    "slug": "sysctl",
+    "title": "sysctl",
+    "category": "Networking",
+    "description": "Inspect and deliberately change kernel runtime parameters. Most network failures do not require changing these settings.",
+    "path": "docs/programs/sysctl.md"
+  },
+  {
+    "slug": "burpsuite",
+    "title": "Burp Suite Community",
+    "category": "Web testing",
+    "description": "Intercept, inspect and replay HTTP requests in a dedicated browser testing workflow. Community is free; Professional is a separate licensed product.",
+    "path": "docs/programs/burpsuite.md"
+  },
+  {
+    "slug": "tar",
+    "title": "tar",
+    "category": "Files",
+    "description": "Create, list and extract archives; compression and archiving are separate steps combined by convenient options.",
+    "path": "docs/programs/tar.md"
+  },
+  {
+    "slug": "routersploit",
+    "title": "RouterSploit",
+    "category": "Network testing",
+    "description": "Explore embedded-device module metadata in an isolated, firmware-specific lab. Historical dependencies may not support a modern Parrot release.",
+    "path": "docs/programs/routersploit.md"
+  },
+  {
+    "slug": "crackmapexec",
+    "title": "CrackMapExec migration",
+    "category": "SMB and AD",
+    "description": "Understand older CME notes and move new workflows to NetExec without assuming command-line flags are identical.",
+    "path": "docs/programs/crackmapexec.md"
+  },
+  {
+    "slug": "netexec",
+    "title": "NetExec",
+    "category": "SMB and AD",
+    "description": "Assess protocol configuration and permitted account access in Windows/AD labs. The primary CLI is commonly nxc; verify installed entry points.",
+    "path": "docs/programs/netexec.md"
+  },
+  {
+    "slug": "smbclient",
+    "title": "smbclient",
+    "category": "SMB and AD",
+    "description": "Browse authorized Windows/Samba shares with an interactive client and prompted credentials.",
+    "path": "docs/programs/smbclient.md"
+  },
+  {
+    "slug": "cifs-utils",
+    "title": "CIFS mounts / cifs-utils",
+    "category": "SMB and AD",
+    "description": "Mount an SMB share into the local filesystem with explicit permissions and a clear unmount step.",
+    "path": "docs/programs/cifs-utils.md"
+  },
+  {
+    "slug": "smbmap",
+    "title": "SMBMap",
+    "category": "SMB and AD",
+    "description": "Summarize SMB shares and effective permissions for an authorized account.",
+    "path": "docs/programs/smbmap.md"
+  },
+  {
+    "slug": "impacket",
+    "title": "Impacket",
+    "category": "SMB and AD",
+    "description": "Python protocol libraries and example clients for Windows/SMB and related network protocols.",
+    "path": "docs/programs/impacket.md"
+  },
+  {
+    "slug": "nmap",
+    "title": "Nmap",
+    "category": "Network testing",
+    "description": "Discover hosts, inspect ports and identify services within an explicitly authorized scope.",
+    "path": "docs/programs/nmap.md"
+  },
+  {
+    "slug": "curl",
+    "title": "curl",
+    "category": "Web testing",
+    "description": "Send HTTP requests and inspect responses without a browser.",
+    "path": "docs/programs/curl.md"
+  },
+  {
+    "slug": "wget",
+    "title": "Wget",
+    "category": "Web testing",
+    "description": "Download a resource to a local file with clear filename and timeout controls.",
+    "path": "docs/programs/wget.md"
+  },
+  {
+    "slug": "gobuster",
+    "title": "Gobuster",
+    "category": "Web testing",
+    "description": "Enumerate web paths, DNS names or virtual hosts with explicit mode-specific options.",
+    "path": "docs/programs/gobuster.md"
+  },
+  {
+    "slug": "seclists",
+    "title": "SecLists",
+    "category": "Web testing",
+    "description": "A collection of test wordlists for discovery and security exercises. It is data, not an executable scanner.",
+    "path": "docs/programs/seclists.md"
+  },
+  {
+    "slug": "nikto",
+    "title": "Nikto",
+    "category": "Web testing",
+    "description": "Check web servers for known risky files, outdated components and configuration clues. Findings need manual validation.",
+    "path": "docs/programs/nikto.md"
+  },
+  {
+    "slug": "wfuzz",
+    "title": "Wfuzz",
+    "category": "Web testing",
+    "description": "Fuzz paths or request parameters with payload generators and filters based on response properties.",
+    "path": "docs/programs/wfuzz.md"
+  },
+  {
+    "slug": "ffuf",
+    "title": "ffuf",
+    "category": "Web testing",
+    "description": "Replace a FUZZ marker in HTTP requests with wordlist entries, with calibration, rate limits and structured output.",
+    "path": "docs/programs/ffuf.md"
+  },
+  {
+    "slug": "postgresql",
+    "title": "PostgreSQL service for labs",
+    "category": "System",
+    "description": "Provide the optional database used by Metasploit workspaces. Service installation and database initialization are separate actions.",
+    "path": "docs/programs/postgresql.md"
+  },
+  {
+    "slug": "metasploit",
+    "title": "Metasploit Framework",
+    "category": "Network testing",
+    "description": "Organize authorized testing modules and evidence in workspaces. Framework is distinct from licensed Metasploit Pro.",
+    "path": "docs/programs/metasploit.md"
+  },
+  {
+    "slug": "meterpreter",
+    "title": "Meterpreter sessions",
+    "category": "Network testing",
+    "description": "Interact with an existing authorized lab session using platform-supported commands. Meterpreter is a payload/session type, not an independent desktop package.",
+    "path": "docs/programs/meterpreter.md"
+  },
+  {
+    "slug": "msfvenom",
+    "title": "msfvenom",
+    "category": "Network testing",
+    "description": "Inspect Framework payload metadata and supported output formats. Installed with Metasploit Framework.",
+    "path": "docs/programs/msfvenom.md"
+  },
+  {
+    "slug": "netcat",
+    "title": "Netcat / nc",
+    "category": "Networking",
+    "description": "Open simple TCP clients/listeners for local protocol and connection exercises. This guide targets netcat-openbsd, not every nc implementation.",
+    "path": "docs/programs/netcat.md"
+  },
+  {
+    "slug": "openssh",
+    "title": "OpenSSH / ssh and scp",
+    "category": "Networking",
+    "description": "Log in and copy files over encrypted authenticated connections. Client installation does not install an SSH server.",
+    "path": "docs/programs/openssh.md"
+  },
+  {
+    "slug": "python-http-server",
+    "title": "Python HTTP server",
+    "category": "Networking",
+    "description": "Temporarily serve a dedicated folder for local file inspection and download exercises. Not a production server.",
+    "path": "docs/programs/python-http-server.md"
+  },
+  {
+    "slug": "crunch",
+    "title": "Crunch",
+    "category": "Password labs",
+    "description": "Generate candidate strings from an explicit character set for small controlled exercises. It does not authenticate or crack anything by itself.",
+    "path": "docs/programs/crunch.md"
+  },
+  {
+    "slug": "hydra",
+    "title": "Hydra",
+    "category": "Password labs",
+    "description": "Test a small, agreed set of login attempts against a designated training account. Different protocols require different modules.",
+    "path": "docs/programs/hydra.md"
+  },
+  {
+    "slug": "medusa",
+    "title": "Medusa",
+    "category": "Password labs",
+    "description": "Perform module-specific authentication checks in a bounded training environment. Use it as an alternative to Hydra, not a redundant extra run.",
+    "path": "docs/programs/medusa.md"
+  },
+  {
+    "slug": "sqlmap",
+    "title": "sqlmap",
+    "category": "Web testing",
+    "description": "Validate suspected SQL injection in your own test application using a captured raw request and a single chosen parameter.",
+    "path": "docs/programs/sqlmap.md"
+  },
+  {
+    "slug": "iw",
+    "title": "iw",
+    "category": "Wireless",
+    "description": "Inspect modern Linux wireless interfaces, driver capabilities and connection state.",
+    "path": "docs/programs/iw.md"
+  },
+  {
+    "slug": "airmon-ng",
+    "title": "airmon-ng",
+    "category": "Wireless",
+    "description": "Manage monitor-mode interfaces for supported Aircrack-ng hardware in an authorized wireless lab.",
+    "path": "docs/programs/airmon-ng.md"
+  },
+  {
+    "slug": "wireshark",
+    "title": "Wireshark",
+    "category": "Traffic analysis",
+    "description": "Inspect network packets visually with display filters and protocol detail panes.",
+    "path": "docs/programs/wireshark.md"
+  },
+  {
+    "slug": "tcpdump",
+    "title": "tcpdump",
+    "category": "Traffic analysis",
+    "description": "Capture a narrowly filtered packet trace from a specific interface for diagnosis.",
+    "path": "docs/programs/tcpdump.md"
+  },
+  {
+    "slug": "tshark",
+    "title": "TShark",
+    "category": "Traffic analysis",
+    "description": "Use Wireshark protocol analysis from the terminal, especially for reading saved captures and extracting fields.",
+    "path": "docs/programs/tshark.md"
+  },
+  {
+    "slug": "find",
+    "title": "find",
+    "category": "Files",
+    "description": "Locate filesystem entries by name, type, size and other metadata. It searches paths, not file contents.",
+    "path": "docs/programs/find.md"
+  },
+  {
+    "slug": "less",
+    "title": "less",
+    "category": "Files",
+    "description": "Read long files without loading an editor; search and navigate logs interactively.",
+    "path": "docs/programs/less.md"
+  },
+  {
+    "slug": "sha256sum",
+    "title": "sha256sum",
+    "category": "Files",
+    "description": "Calculate SHA-256 digests to compare file bytes or verify against a trusted publisher checksum.",
+    "path": "docs/programs/sha256sum.md"
+  },
+  {
+    "slug": "jq",
+    "title": "jq",
+    "category": "Utilities",
+    "description": "Read, transform and validate JSON using composable filters.",
+    "path": "docs/programs/jq.md"
+  },
+  {
+    "slug": "ripgrep",
+    "title": "ripgrep / rg",
+    "category": "Utilities",
+    "description": "Search file contents quickly with useful line numbers, file filters and explicit hidden-file handling.",
+    "path": "docs/programs/ripgrep.md"
+  },
+  {
+    "slug": "tmux",
+    "title": "tmux",
+    "category": "Utilities",
+    "description": "Keep related terminal windows and panes in a session that survives client detachment.",
+    "path": "docs/programs/tmux.md"
+  },
+  {
+    "slug": "btop",
+    "title": "btop",
+    "category": "Utilities",
+    "description": "Monitor CPU, memory, disks, network rates and processes interactively.",
+    "path": "docs/programs/btop.md"
+  },
+  {
+    "slug": "openssl",
+    "title": "OpenSSL",
+    "category": "Utilities",
+    "description": "Inspect certificates and create local test cryptographic material without assuming that an arbitrary certificate is trusted.",
+    "path": "docs/programs/openssl.md"
+  },
+  {
+    "slug": "zap",
+    "title": "OWASP ZAP",
+    "category": "Web testing",
+    "description": "Inspect HTTP traffic and assess your own web application with a scoped proxy workflow. Passive analysis and active scans have different effects.",
+    "path": "docs/programs/zap.md"
+  },
+  {
+    "slug": "shellcheck",
+    "title": "ShellCheck",
+    "category": "Utilities",
+    "description": "Analyze shell scripts for common quoting, portability and logic mistakes without executing them.",
+    "path": "docs/programs/shellcheck.md"
+  },
+  {
+    "slug": "systemctl",
+    "title": "systemctl",
+    "category": "System",
+    "description": "Inspect and control systemd units. Starting now and enabling at boot are separate operations.",
+    "path": "docs/programs/systemctl.md"
+  },
+  {
+    "slug": "journalctl",
+    "title": "journalctl",
+    "category": "System",
+    "description": "Read systemd journal entries by service, boot and time to diagnose the exact failure.",
+    "path": "docs/programs/journalctl.md"
+  }
+]

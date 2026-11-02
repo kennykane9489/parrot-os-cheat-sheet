@@ -1,0 +1,1981 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="One-page Parrot OS cheat sheet with installation, practical examples and troubleshooting for 61 tools."><meta name="theme-color" content="#111214"><title>Parrot OS Cheat Sheet</title><link rel="stylesheet" href="assets/style.css"><script defer src="assets/app.js"></script></head><body><a class="skip" href="#cheat-sheet">Skip to cheat sheet</a><header class="toolbar"><a class="wordmark" href="#parrot-os-cheat-sheet"><span aria-hidden="true">&gt;_</span> PARROT OS</a><div class="jump"><label for="program-jump">Jump to program</label><select id="program-jump"><option value="">Choose a tool…</option><option value="program-apt">APT and parrot-upgrade</option><option value="program-bash">Bash and core shell commands</option><option value="program-gnome-tweaks">GNOME Tweaks and extensions</option><option value="program-git">Git</option><option value="program-python-venv">Python virtual environments</option><option value="program-pip">pip</option><option value="program-pipx">pipx</option><option value="program-dpkg">dpkg</option><option value="program-openvpn">OpenVPN</option><option value="program-ip">ip</option><option value="program-ss">ss</option><option value="program-nmcli">nmcli / NetworkManager</option><option value="program-dig">dig</option><option value="program-nslookup">nslookup</option><option value="program-getent">getent</option><option value="program-sysctl">sysctl</option><option value="program-burpsuite">Burp Suite Community</option><option value="program-tar">tar</option><option value="program-routersploit">RouterSploit</option><option value="program-crackmapexec">CrackMapExec migration</option><option value="program-netexec">NetExec</option><option value="program-smbclient">smbclient</option><option value="program-cifs-utils">CIFS mounts / cifs-utils</option><option value="program-smbmap">SMBMap</option><option value="program-impacket">Impacket</option><option value="program-nmap">Nmap</option><option value="program-curl">curl</option><option value="program-wget">Wget</option><option value="program-gobuster">Gobuster</option><option value="program-seclists">SecLists</option><option value="program-nikto">Nikto</option><option value="program-wfuzz">Wfuzz</option><option value="program-ffuf">ffuf</option><option value="program-postgresql">PostgreSQL service for labs</option><option value="program-metasploit">Metasploit Framework</option><option value="program-meterpreter">Meterpreter sessions</option><option value="program-msfvenom">msfvenom</option><option value="program-netcat">Netcat / nc</option><option value="program-openssh">OpenSSH / ssh and scp</option><option value="program-python-http-server">Python HTTP server</option><option value="program-crunch">Crunch</option><option value="program-hydra">Hydra</option><option value="program-medusa">Medusa</option><option value="program-sqlmap">sqlmap</option><option value="program-iw">iw</option><option value="program-airmon-ng">airmon-ng</option><option value="program-wireshark">Wireshark</option><option value="program-tcpdump">tcpdump</option><option value="program-tshark">TShark</option><option value="program-find">find</option><option value="program-less">less</option><option value="program-sha256sum">sha256sum</option><option value="program-jq">jq</option><option value="program-ripgrep">ripgrep / rg</option><option value="program-tmux">tmux</option><option value="program-btop">btop</option><option value="program-openssl">OpenSSL</option><option value="program-zap">OWASP ZAP</option><option value="program-shellcheck">ShellCheck</option><option value="program-systemctl">systemctl</option><option value="program-journalctl">journalctl</option></select><button type="button" id="jump-button">Go</button></div><a class="repo" href="https://github.com/kennykane9489/parrot-os-cheat-sheet">GitHub ↗</a></header><main id="cheat-sheet" class="sheet" tabindex="-1"><h1 id="parrot-os-cheat-sheet">Parrot OS Cheat Sheet</h1>
+<p>One continuous reference for installing and using your tools. Each program has its setup, commands, practical examples and troubleshooting together. Updated November 2, 2026.</p>
+
+<h2 id="jump-to-a-program">Jump to a program</h2>
+<p><a href="#program-apt">APT and parrot-upgrade</a> · <a href="#program-bash">Bash and core shell commands</a> · <a href="#program-gnome-tweaks">GNOME Tweaks and extensions</a> · <a href="#program-git">Git</a> · <a href="#program-python-venv">Python virtual environments</a> · <a href="#program-pip">pip</a> · <a href="#program-pipx">pipx</a></p>
+<p><a href="#program-dpkg">dpkg</a> · <a href="#program-openvpn">OpenVPN</a> · <a href="#program-ip">ip</a> · <a href="#program-ss">ss</a> · <a href="#program-nmcli">nmcli / NetworkManager</a> · <a href="#program-dig">dig</a> · <a href="#program-nslookup">nslookup</a></p>
+<p><a href="#program-getent">getent</a> · <a href="#program-sysctl">sysctl</a> · <a href="#program-burpsuite">Burp Suite Community</a> · <a href="#program-tar">tar</a> · <a href="#program-routersploit">RouterSploit</a> · <a href="#program-crackmapexec">CrackMapExec migration</a> · <a href="#program-netexec">NetExec</a></p>
+<p><a href="#program-smbclient">smbclient</a> · <a href="#program-cifs-utils">CIFS mounts / cifs-utils</a> · <a href="#program-smbmap">SMBMap</a> · <a href="#program-impacket">Impacket</a> · <a href="#program-nmap">Nmap</a> · <a href="#program-curl">curl</a> · <a href="#program-wget">Wget</a></p>
+<p><a href="#program-gobuster">Gobuster</a> · <a href="#program-seclists">SecLists</a> · <a href="#program-nikto">Nikto</a> · <a href="#program-wfuzz">Wfuzz</a> · <a href="#program-ffuf">ffuf</a> · <a href="#program-postgresql">PostgreSQL service for labs</a> · <a href="#program-metasploit">Metasploit Framework</a></p>
+<p><a href="#program-meterpreter">Meterpreter sessions</a> · <a href="#program-msfvenom">msfvenom</a> · <a href="#program-netcat">Netcat / nc</a> · <a href="#program-openssh">OpenSSH / ssh and scp</a> · <a href="#program-python-http-server">Python HTTP server</a> · <a href="#program-crunch">Crunch</a> · <a href="#program-hydra">Hydra</a></p>
+<p><a href="#program-medusa">Medusa</a> · <a href="#program-sqlmap">sqlmap</a> · <a href="#program-iw">iw</a> · <a href="#program-airmon-ng">airmon-ng</a> · <a href="#program-wireshark">Wireshark</a> · <a href="#program-tcpdump">tcpdump</a> · <a href="#program-tshark">TShark</a></p>
+<p><a href="#program-find">find</a> · <a href="#program-less">less</a> · <a href="#program-sha256sum">sha256sum</a> · <a href="#program-jq">jq</a> · <a href="#program-ripgrep">ripgrep / rg</a> · <a href="#program-tmux">tmux</a> · <a href="#program-btop">btop</a></p>
+<p><a href="#program-openssl">OpenSSL</a> · <a href="#program-zap">OWASP ZAP</a> · <a href="#program-shellcheck">ShellCheck</a> · <a href="#program-systemctl">systemctl</a> · <a href="#program-journalctl">journalctl</a></p>
+<hr>
+<h2 id="before-you-start">Before you start</h2>
+<p>Run commands one at a time. Replace example paths, interfaces, accounts and addresses. Network-testing examples are for your own systems or explicitly authorized labs; private addresses alone are not authorization. Examples are documentation-reviewed; Parrot runtime checks remain pending. “Expected” describes behavior, not a captured result from your computer.</p>
+<p>Installation sections use Parrot APT packages where available. Read <code>apt policy PACKAGE</code> and the proposed changes first; do not add Kali or Ubuntu repositories. A shared base package such as coreutils, systemd or libc-bin normally exists already and should not be removed as lab cleanup. Update APT-installed tools through Parrot&#39;s upgrade workflow; update pipx/source installs through the manager that installed them.</p>
+<p><code>sudo</code> changes privileges. <code>&gt;</code> overwrites files; <code>&gt;&gt;</code> appends. Quote variable/path expansions. <code>&amp;&amp;</code> runs the next command only after success. Ctrl+C usually stops a foreground tool. For exact options, use local help/man pages for your installed build.</p>
+<p><strong>Practice setup:</strong> many HTTP examples refer to a local server on 127.0.0.1:8000. Start it with the <a href="#program-python-http-server">Python HTTP server section</a>, then stop it when finished. A static file server is not an SQL-injection, authentication or API lab. Those exercises need the explicitly described test service.</p>
+<h3 id="command-impact-labels">Command impact labels</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INSPECT</td>
+<td>Read state/help; output can contain private information.</td>
+</tr>
+<tr>
+<td>NETWORK</td>
+<td>Send requests or probes to the specified service.</td>
+</tr>
+<tr>
+<td>WRITE / CHANGE</td>
+<td>Create files, install packages or change settings.</td>
+</tr>
+<tr>
+<td>REMOVE</td>
+<td>Delete data or packages.</td>
+</tr>
+<tr>
+<td>LISTEN / MOUNT</td>
+<td>Open a listener or attach a filesystem.</td>
+</tr>
+<tr>
+<td>CAPTURE</td>
+<td>Observe packet data; scope and permissions matter.</td>
+</tr>
+<tr>
+<td>DISCONNECT</td>
+<td>Can interrupt an active network connection.</td>
+</tr>
+</tbody></table></div>
+<h3 id="vm-network-types">VM network types</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NAT</td>
+<td>Usually gives the guest outbound connectivity through the host; inbound connections may need forwarding.</td>
+</tr>
+<tr>
+<td>Bridged</td>
+<td>Places the guest on the physical LAN with its own network identity.</td>
+</tr>
+<tr>
+<td>Host-only</td>
+<td>Private host/guest network; no Internet by default.</td>
+</tr>
+<tr>
+<td>Internal network</td>
+<td>Guest-to-guest segment; the host is usually excluded.</td>
+</tr>
+<tr>
+<td>Custom</td>
+<td>Hypervisor-specific configuration; inspect its actual adapters and routing.</td>
+</tr>
+</tbody></table></div>
+<p>Check every adapter: an extra NAT/bridged interface can defeat an intended isolated lab.</p>
+<hr>
+<p><a id="program-apt"></a></p>
+<h2 id="apt-and-parrot-upgrade">APT and parrot-upgrade</h2>
+<p>Manage Debian-format packages and dependencies. Use <code>apt</code> interactively; use <code>apt-get</code>/<code>apt-cache</code> for stable scripting interfaces.</p>
+<h3 id="install-and-verify">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy apt
+sudo apt install apt
+apt --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK, CHANGE; upgrades may REMOVE dependencies. APT is already part of Parrot. Do not reinstall it merely to verify the command.</p>
+<h4 id="update-the-system">Update the system</h4>
+<pre><code class="language-bash">sudo apt update
+apt list --upgradable
+sudo parrot-upgrade
+</code></pre>
+<p><code>update</code> refreshes indexes without upgrading installed software. Parrot’s wrapper handles rolling system upgrades. Review removals; reboot when needed to load a new kernel.</p>
+<h4 id="find-and-install-one-tool">Find and install one tool</h4>
+<pre><code class="language-bash">apt search ripgrep
+apt show ripgrep
+apt policy ripgrep
+sudo apt install ripgrep
+</code></pre>
+<p>Search finds packages; show describes them; policy identifies candidates/origins. Install fetches dependencies. A specific package can also be upgraded by <code>sudo apt install --only-upgrade ripgrep</code>.</p>
+<h4 id="preview-cleanup">Preview cleanup</h4>
+<pre><code class="language-bash">sudo apt autoremove --dry-run
+sudo apt clean
+</code></pre>
+<p>Autoremove&#39;s preview lists unused automatic dependencies. Clean deletes downloaded archives, not installed tools. Remove keeps many settings; purge also deletes package-managed configuration, not necessarily files in your home.</p>
+<p><strong>Troubleshooting:</strong> wait for a running updater rather than deleting lock files. DNS errors require a working resolver; missing candidates require checking indexes/release/repositories. After an interrupted transaction, use <code>sudo dpkg --configure -a</code> only after other package processes finish. Do not run an unattended chain of upgrade/removal commands.</p>
+<p><strong>Cleanup:</strong> package operations create no disposable lab folder. Use clean for cached downloads only when needed; review autoremove before performing it.</p>
+<p><strong>Reference:</strong> <a href="https://parrotsec.org/docs/configuration/parrot-software-management/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-bash"></a></p>
+<h2 id="bash-and-core-shell-commands">Bash and core shell commands</h2>
+<p>Navigate folders, create files and understand shell operators before combining tool commands. cd is a shell builtin; many file utilities come from coreutils.</p>
+<h3 id="install-and-verify-1">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy bash coreutils
+sudo apt install bash coreutils
+bash --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-1">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT, WRITE or REMOVE depending on command. Run in a fresh temporary directory for practice, not your home root.</p>
+<pre><code class="language-bash">shell_lab=$(mktemp -d /tmp/parrot-shell.XXXXXX)
+cd &quot;$shell_lab&quot;
+pwd
+mkdir notes
+printf &#39;hello\n&#39; &gt; notes/example.txt
+ls -lah notes
+cat notes/example.txt
+</code></pre>
+<p>pwd prints the current directory. ls lists entries; <code>-a</code> includes hidden entries. mkdir creates a directory. printf writes text and <code>&gt;</code> overwrites the destination. <code>&gt;&gt;</code> appends. Quoting variable expansions preserves spaces and prevents unintended globbing.</p>
+<h4 id="operators-and-paths">Operators and paths</h4>
+<p><code>&amp;&amp;</code> runs the right command only after success; a pipe <code>|</code> sends output into another program. <code>~</code> expands to your home in suitable shell contexts. Relative paths depend on pwd. A leading <code>#</code> begins a comment outside quoted strings; prompt markers in tutorials are not commands.</p>
+<h4 id="inspect-permissions">Inspect permissions</h4>
+<pre><code class="language-bash">id
+ls -l notes/example.txt
+</code></pre>
+<p>Owner/group/mode govern local access alongside ACLs and other policy. sudo elevates privileges; it is not a generic fix for every error. Do not use chmod 777 as a default repair.</p>
+<h4 id="cleanup-in-the-same-terminal">Cleanup in the same terminal</h4>
+<pre><code class="language-bash">rm -- notes/example.txt
+rmdir notes
+cd ~
+rmdir -- &quot;$shell_lab&quot;
+unset shell_lab
+</code></pre>
+<p>rm deletes files; rmdir removes empty directories. <code>--</code> ends option parsing. Avoid recursive deletion until you have inspected the exact target and consequences.</p>
+<p><strong>Troubleshooting:</strong> check pwd before relative paths, quote expansions, and read the exact permission/path error. Do not retry a mistaken deletion with sudo.</p>
+<p><strong>Cleanup:</strong> the commands above remove only the known file and empty temporary directories.</p>
+<p><strong>Reference:</strong> <a href="https://www.gnu.org/software/bash/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-gnome-tweaks"></a></p>
+<h2 id="gnome-tweaks-and-extensions">GNOME Tweaks and extensions</h2>
+<p>Adjust GNOME desktop preferences beyond the standard Settings app. GNOME extensions require GNOME Shell; they do not apply to MATE/KDE.</p>
+<h3 id="install-and-verify-2">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy gnome-tweaks
+sudo apt install gnome-tweaks
+gnome-tweaks --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-2">Use it in practice</h3>
+<p><strong>Impact:</strong> CHANGE to your desktop preferences. Check your environment before installing:</p>
+<pre><code class="language-bash">printf &#39;%s\n&#39; &quot;$XDG_CURRENT_DESKTOP&quot;
+gnome-tweaks
+</code></pre>
+<p>If you are not running GNOME, use your desktop’s settings instead. Installing Tweaks does not switch you to GNOME.</p>
+<h4 id="practical-workflow">Practical workflow</h4>
+<ol>
+<li>Open Tweaks as your normal user, never with sudo.</li>
+<li>Record the current setting you intend to change.</li>
+<li>Change a single option such as the interface font or window-titlebar behavior.</li>
+<li>Check usability and restore the recorded setting if the result is undesirable.</li>
+</ol>
+<p>Available panels vary by GNOME release. Extension management may be in the separate Extensions app. Use the official GNOME extensions site, check shell-version compatibility and review each extension&#39;s permissions/source before enabling it.</p>
+<p><strong>Troubleshooting:</strong> an empty or missing option may be a desktop/version mismatch. Disable a newly added extension if the shell becomes unstable. Do not install Ubuntu desktop meta-packages to “fix” Parrot. Logout/login can apply some desktop changes; save work first.</p>
+<p><strong>Cleanup:</strong> disable/remove the specific test extension and restore changed settings. Removing Tweaks does not necessarily undo the preferences you changed.</p>
+<p><strong>Reference:</strong> <a href="https://extensions.gnome.org/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-git"></a></p>
+<h2 id="git">Git</h2>
+<p>Track file history, inspect changes, and collaborate with a remote repository.</p>
+<h3 id="install-and-verify-3">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy git
+sudo apt install git
+git --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-3">Use it in practice</h3>
+<p><strong>Impact:</strong> WRITE locally; NETWORK on clone/fetch/push. Start in a new directory rather than an unrelated project.</p>
+<h4 id="clone-this-reference">Clone this reference</h4>
+<pre><code class="language-bash">git clone https://github.com/kennykane9489/parrot-os-cheat-sheet.git
+cd parrot-os-cheat-sheet
+git status
+git log -5 --oneline
+</code></pre>
+<p>Clone creates a directory. Status identifies uncommitted changes; log shows recent commits. A clone downloads code; it does not make that code trustworthy to execute.</p>
+<h4 id="make-a-small-documentation-change">Make a small documentation change</h4>
+<pre><code class="language-bash">git switch -c docs/my-notes
+git diff
+git add docs/quick-reference.md
+git diff --cached
+git commit -m &quot;Clarify quick reference&quot;
+</code></pre>
+<p>Edit the file before staging. <code>--cached</code> reviews exactly what will be committed. Configure a commit name/email if prompted, using values you are comfortable exposing in public history.</p>
+<h4 id="update-without-hiding-conflicts">Update without hiding conflicts</h4>
+<pre><code class="language-bash">git fetch origin
+git status
+git diff HEAD..origin/main
+</code></pre>
+<p>Fetch updates remote-tracking data without merging it. Review before choosing a merge/rebase. Publishing your branch with <code>git push -u origin docs/my-notes</code> needs authenticated write access.</p>
+<p><strong>Troubleshooting:</strong> authentication failures need a credential helper, SSH key or supported token method; never put tokens in a public URL. Preserve local changes before updating. Avoid <code>reset --hard</code> or forced pushes as routine fixes. To leave a branch, use <code>git switch main</code>; keep your work committed or safely saved first.</p>
+<p><strong>Cleanup:</strong> return to main only after committing/saving work. Remove a local test branch only after confirming its changes are preserved; deleting a working directory is not required.</p>
+<p><strong>Reference:</strong> <a href="https://git-scm.com/docs/gittutorial">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-python-venv"></a></p>
+<h2 id="python-virtual-environments">Python virtual environments</h2>
+<p>Keep project dependencies separate from Parrot’s system Python.</p>
+<h3 id="install-and-verify-4">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy python3-venv
+sudo apt install python3-venv
+python3 --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-4">Use it in practice</h3>
+<p><strong>Impact:</strong> WRITE. Work in your own project directory. A venv is an environment, not a virtual machine or security sandbox.</p>
+<pre><code class="language-bash">mkdir -p ~/labs/python-demo
+cd ~/labs/python-demo
+python3 -m venv .venv
+source .venv/bin/activate
+python -c &#39;import sys; print(sys.executable); print(sys.prefix != sys.base_prefix)&#39;
+python -m pip --version
+</code></pre>
+<p>The executable/pip should be under this <code>.venv</code>; the Boolean should be <code>True</code>. Activation affects the current shell. You can instead use <code>.venv/bin/python</code> explicitly without activation.</p>
+<h4 id="run-and-record-a-project">Run and record a project</h4>
+<pre><code class="language-bash">python -c &#39;print(&quot;isolated Python works&quot;)&#39;
+python -m pip list
+python -m pip freeze &gt; requirements.txt
+deactivate
+</code></pre>
+<p>Freeze writes installed versions for later review; it is not a complete cross-platform dependency lock. A project with no third-party packages can have an empty requirements file.</p>
+<p><strong>Troubleshooting:</strong> missing ensurepip/venv support usually requires the matching Parrot <code>python3-venv</code> package. An “externally managed” pip error means you are probably using system Python; verify executable paths. Do not solve it with <code>sudo pip</code>.</p>
+<p><strong>Cleanup:</strong> deactivate first. Inspect the exact project&#39;s <code>.venv</code> path and remove only that generated environment if no longer needed. Keep source files and requirements. Virtual environments can be recreated and should not be committed to Git.</p>
+<p><strong>Reference:</strong> <a href="https://docs.python.org/3/library/venv.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-pip"></a></p>
+<h2 id="pip">pip</h2>
+<p>Install Python libraries inside a project environment. Use <code>python -m pip</code> to select the pip belonging to that interpreter.</p>
+<h3 id="install-and-verify-5">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy python3-pip
+sudo apt install python3-pip
+python3 -m pip --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-5">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK, WRITE; package installs can execute build code. First create/activate a venv with <code>python3 -m venv .venv</code> and <code>source .venv/bin/activate</code>.</p>
+<h4 id="install-inspect-and-validate-a-library">Install, inspect, and validate a library</h4>
+<pre><code class="language-bash">python -m pip install requests
+python -m pip show requests
+python -m pip check
+python -c &#39;import requests; print(requests.__version__)&#39;
+</code></pre>
+<p>This example obtains the Requests HTTP library from your configured package index. Review package identity and trust before installing. Show reports metadata/location; check detects incompatible installed dependency requirements.</p>
+<h4 id="recreate-a-known-project">Recreate a known project</h4>
+<pre><code class="language-bash">python -m pip install -r requirements.txt
+python -m pip list
+python -m pip freeze &gt; installed-versions.txt
+</code></pre>
+<p>Use only a trusted requirements file; it may reference source repositories or other indexes. Freeze records what is present; it does not review vulnerabilities or guarantee reproducibility across operating systems.</p>
+<h4 id="remove-a-project-dependency">Remove a project dependency</h4>
+<pre><code class="language-bash">python -m pip uninstall requests
+</code></pre>
+<p>Uninstall prompts and does not automatically remove all dependencies. Deactivate when finished. For disposable experiments, remove the inspected project venv instead of changing system Python.</p>
+<p><strong>Troubleshooting:</strong> verify <code>sys.executable</code> and pip location when imports fail. Build failures may need development headers compatible with the project. Do not globally bypass Parrot&#39;s externally managed environment protection.</p>
+<p><strong>Cleanup:</strong> deactivate the environment and remove only a confirmed disposable project venv if it is no longer needed. Keep source and requirements files.</p>
+<p><strong>Reference:</strong> <a href="https://pip.pypa.io/en/stable/user_guide/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-pipx"></a></p>
+<h2 id="pipx">pipx</h2>
+<p>Install Python command-line applications into separate environments while exposing their commands on your PATH.</p>
+<h3 id="install-and-verify-6">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy pipx
+sudo apt install pipx
+pipx --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-6">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK, WRITE. Use pipx for applications, not libraries imported by another project.</p>
+<pre><code class="language-bash">pipx ensurepath
+pipx list
+</code></pre>
+<p>Open a new terminal after ensurepath. It may update shell startup configuration. Do not use sudo for your normal pipx environment.</p>
+<h4 id="install-a-cli-and-check-it">Install a CLI and check it</h4>
+<pre><code class="language-bash">pipx install httpie
+http --version
+http GET http://127.0.0.1:8000/
+</code></pre>
+<p>HTTPie is an example trusted CLI; the request needs a running local web server. pipx supplies isolation; HTTPie performs the request. A missing executable after installation usually indicates PATH needs reloading.</p>
+<h4 id="maintain-or-remove-it">Maintain or remove it</h4>
+<pre><code class="language-bash">pipx list
+pipx upgrade httpie
+pipx uninstall httpie
+</code></pre>
+<p>Upgrade acts on this pipx application, not an APT-installed program of the same name. Use <code>command -v http</code> to see which executable runs. Do not install multiple competing copies without tracking them.</p>
+<p><strong>Troubleshooting:</strong> libraries generally have no entry-point executable and are unsuitable for pipx. A package build failure may require supported Python and build dependencies; inspect upstream requirements. Cleanup with pipx uninstall removes the application&#39;s environment; it may leave user settings outside it.</p>
+<p><strong>Cleanup:</strong> pipx uninstall httpie removes the example application environment; review any separate user settings before deleting them.</p>
+<p><strong>Reference:</strong> <a href="https://pipx.pypa.io/stable/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-dpkg"></a></p>
+<h2 id="dpkg">dpkg</h2>
+<p>Inspect and manage individual .deb packages and their installed file lists. APT sits above dpkg and resolves downloads/dependencies.</p>
+<h3 id="install-and-verify-7">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy dpkg
+sudo apt install dpkg
+dpkg --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-7">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for queries; CHANGE for installs/configuration. Already installed on Parrot.</p>
+<h4 id="inspect-before-installing">Inspect before installing</h4>
+<pre><code class="language-bash">dpkg --print-architecture
+dpkg-deb --info ./file.deb
+dpkg-deb --contents ./file.deb
+</code></pre>
+<p>Replace <code>file.deb</code> with a trusted local package. Compare architecture and package details with your system. Inspection does not establish publisher authenticity.</p>
+<h4 id="install-and-find-package-files">Install and find package files</h4>
+<pre><code class="language-bash">sudo apt install ./file.deb
+dpkg -l nmap
+dpkg -L nmap
+dpkg -S /usr/bin/nmap
+</code></pre>
+<p>APT is preferable for a local .deb because it can fetch dependencies. <code>dpkg -i</code> alone cannot fetch them. <code>-l</code> queries package status; <code>-L</code> lists files; <code>-S</code> finds the owning package. Files installed outside the package manager may have no owner.</p>
+<h4 id="recover-an-interrupted-setup">Recover an interrupted setup</h4>
+<pre><code class="language-bash">sudo dpkg --configure -a
+sudo apt --fix-broken install
+</code></pre>
+<p>Use recovery only when package errors call for it, after other package transactions stop. Review the dependency repair proposal.</p>
+<p><strong>Troubleshooting:</strong> an architecture mismatch requires the correct build, not force flags. If a dependency cannot be satisfied, use a compatible package/release. Do not force overwrites to conceal conflicts. Cleanup of a test package belongs in APT, after reviewing a dry run.</p>
+<p><strong>Cleanup:</strong> if you intentionally installed a disposable test package, preview its removal through APT before removing it. Do not remove dpkg itself.</p>
+<p><strong>Reference:</strong> <a href="https://manpages.debian.org/stable/dpkg/dpkg.1.en.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-openvpn"></a></p>
+<h2 id="openvpn">OpenVPN</h2>
+<p>Connect to a trusted VPN provider or lab using its issued profile and credentials.</p>
+<h3 id="install-and-verify-8">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy openvpn
+sudo apt install openvpn
+openvpn --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-8">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and CHANGE to routing/DNS integration. Use a fresh configuration for the correct lab/region.</p>
+<pre><code class="language-bash">sudo openvpn --config ~/Downloads/lab.ovpn
+</code></pre>
+<p>Keep the terminal open. A successful initialization message indicates the tunnel initialized; it does not guarantee the target is running. Configuration files can reference scripts, keys and credentials, so obtain them from the provider and do not share them publicly.</p>
+<h4 id="verify-the-route-in-another-terminal">Verify the route in another terminal</h4>
+<pre><code class="language-bash">ip -br address
+ip route get 10.10.10.10
+ping -c 3 10.10.10.10
+</code></pre>
+<p>Replace the IP with your authorized target. Read which interface the route selects. Ping may be blocked; also test the known service. Avoid simultaneous duplicate VPNs and overlapping host-only/NAT subnets.</p>
+<h4 id="when-it-fails">When it fails</h4>
+<p>Authentication errors need valid provider credentials/profile. Route conflicts require inspecting both VPN and local subnet routes. DNS failures need checking the provider&#39;s supported resolver integration; OpenVPN itself does not always apply all DNS settings on every Linux setup. If logs specifically mention IPv6, diagnose that error rather than applying a blanket sysctl recipe.</p>
+<p><strong>Cleanup:</strong> Ctrl+C in the OpenVPN terminal closes this session; verify routes/connection state afterward. Remove unneeded profiles securely according to your provider’s credential handling. Do not publish configuration or logs containing keys/tokens.</p>
+<p><strong>Troubleshooting:</strong> distinguish authentication, route and resolver failures from the actual logs; initialization alone does not prove the target is reachable.</p>
+<p><strong>Reference:</strong> <a href="https://openvpn.net/community-resources/reference-manual-for-openvpn-2-6/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-ip"></a></p>
+<h2 id="ip">ip</h2>
+<p>Inspect addresses, links, neighbors and routes using the modern iproute2 suite.</p>
+<h3 id="install-and-verify-9">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy iproute2
+sudo apt install iproute2
+ip -Version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-9">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT in this guide. Other ip commands can disconnect the machine or alter routing.</p>
+<pre><code class="language-bash">ip -br address
+ip link show
+ip route
+ip -6 route
+ip neigh
+</code></pre>
+<p>Brief address output associates interfaces with addresses. Link state does not prove Internet access. IPv4 and IPv6 have separate routing tables; a default route points to the gateway used when no more-specific route matches.</p>
+<h4 id="troubleshoot-a-vpn-target">Troubleshoot a VPN target</h4>
+<pre><code class="language-bash">ip route get 10.10.10.10
+</code></pre>
+<p>Replace the address with your lab target. Read the selected <code>dev</code>, source address and optional gateway. A VPN-lab target should normally route through the expected tunnel. This is a route lookup, not a reachability probe.</p>
+<h4 id="inspect-one-actual-interface">Inspect one actual interface</h4>
+<pre><code class="language-bash">ip address show dev lo
+ip -s link show dev lo
+</code></pre>
+<p><code>lo</code> exists on normal Linux systems. Use the name from your own output for physical/tunnel interfaces. <code>-s</code> shows packet counters; drops/errors can guide further diagnosis.</p>
+<p><strong>Troubleshooting:</strong> names such as enp0s3, wlp2s0 and tun0 vary. An IP route command failing with “network unreachable” identifies a local routing problem. Do not add arbitrary default routes while a remote session depends on the connection.</p>
+<p><strong>Cleanup:</strong> read-only commands require none.</p>
+<p><strong>Reference:</strong> <a href="https://man7.org/linux/man-pages/man8/ip.8.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-ss"></a></p>
+<h2 id="ss">ss</h2>
+<p>Identify listening ports, active sockets and the processes that own them. Part of iproute2.</p>
+<h3 id="install-and-verify-10">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy iproute2
+sudo apt install iproute2
+ss -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-10">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT. Use process visibility only when needed; sudo can reveal other users&#39; sockets.</p>
+<pre><code class="language-bash">ss -tuln
+sudo ss -tulpn
+ss -tn state established
+</code></pre>
+<p><code>t</code> TCP; <code>u</code> UDP; <code>l</code> listening; <code>n</code> numeric addresses; <code>p</code> processes. UDP does not perform TCP-style listening handshakes even though it appears in combined output.</p>
+<h4 id="find-the-local-http-server">Find the local HTTP server</h4>
+<pre><code class="language-bash">ss -ltn &#39;sport = :8000&#39;
+</code></pre>
+<p>After starting the HTTP lab, expect a listener at <code>127.0.0.1:8000</code>. A listener at <code>0.0.0.0:8000</code> accepts on all IPv4 interfaces, subject to firewall/routing. <code>127.0.0.1</code> is loopback-only. IPv6 <code>::</code> binding behavior can depend on system socket settings.</p>
+<h4 id="determine-a-port-conflict">Determine a port conflict</h4>
+<pre><code class="language-bash">sudo ss -ltnp &#39;sport = :8000&#39;
+</code></pre>
+<p>Read the PID/process before deciding whether to stop it. Do not kill a random service merely because it occupies your desired lab port; choosing another port is often easier.</p>
+<p><strong>Troubleshooting:</strong> no listener may mean the server exited or bound another address/port. A listener proves only local socket state, not remote reachability or authentication. Process details may be hidden without privileges.</p>
+<p><strong>Cleanup:</strong> inspection leaves sockets unchanged. Stop only your own lab server in its terminal.</p>
+<p><strong>Reference:</strong> <a href="https://man7.org/linux/man-pages/man8/ss.8.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-nmcli"></a></p>
+<h2 id="nmcli--networkmanager">nmcli / NetworkManager</h2>
+<p>Inspect and manage connections controlled by NetworkManager. Distinguish a device from its saved connection profile.</p>
+<h3 id="install-and-verify-11">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy network-manager
+sudo apt install network-manager
+nmcli --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-11">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT initially; activation/deactivation CHANGES connectivity. NetworkManager is often installed already. Installing/restarting it during a remote session can disrupt access.</p>
+<pre><code class="language-bash">nmcli device status
+nmcli connection show --active
+nmcli connection show
+</code></pre>
+<p>A profile can exist while inactive. Device state and profile names help identify what is actually connected.</p>
+<h4 id="connect-to-your-own-wi-fi">Connect to your own Wi-Fi</h4>
+<pre><code class="language-bash">nmcli device wifi list
+nmcli --ask device wifi connect &#39;YOUR_SSID&#39;
+</code></pre>
+<p>Replace the SSID; <code>--ask</code> prompts for secrets instead of putting a password in history. Listing may initiate a wireless scan. Enterprise authentication can need a more detailed profile; use the appropriate GUI or documented enterprise settings.</p>
+<h4 id="reactivate-a-saved-profile">Reactivate a saved profile</h4>
+<pre><code class="language-bash">nmcli connection up &#39;YOUR_PROFILE_NAME&#39;
+</code></pre>
+<p>Use the exact name from your output. This can interrupt a current connection. To deliberately disconnect a specific device use <code>nmcli device disconnect DEVICE</code> only with a recovery path.</p>
+<p><strong>Troubleshooting:</strong> “NetworkManager is not running” requires checking service status; “unmanaged” can mean another service/config owns the device. Do not start competing managers. After wireless monitor mode, restore managed mode before reconnecting.</p>
+<p><strong>Cleanup:</strong> reconnect your original profile if you changed it. Do not delete profiles unless you intend to lose their saved settings.</p>
+<p><strong>Reference:</strong> <a href="https://networkmanager.dev/docs/api/latest/nmcli.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-dig"></a></p>
+<h2 id="dig">dig</h2>
+<p>Query DNS records and inspect resolver answers. Both tools are supplied by BIND utilities on typical Debian-based installations.</p>
+<h3 id="install-and-verify-12">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy dnsutils
+sudo apt install dnsutils
+dig -version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-12">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK. Query the configured resolver:</p>
+<pre><code class="language-bash">dig example.com A
+dig example.com AAAA +short
+dig example.com MX
+dig -x 127.0.0.1
+</code></pre>
+<p>Read the response status, ANSWER section and queried SERVER. <code>+short</code> hides diagnostic context; use full output for failures. A and AAAA are IPv4/IPv6 addresses; MX describes mail routing. Reverse lookup may return no name.</p>
+<h4 id="compare-a-specific-resolver">Compare a specific resolver</h4>
+<pre><code class="language-bash">dig @192.168.56.1 lab.test A
+</code></pre>
+<p>Only use a resolver you control or are authorized to query. The example lab zone must exist there. <code>NXDOMAIN</code> means that resolver reports the name absent; <code>SERVFAIL</code> indicates a resolution failure, not necessarily absence. A timeout can be network or service trouble.</p>
+<p><strong>Troubleshooting:</strong> dig queries DNS directly and may differ from applications using hosts files or other name services. Compare with <code>getent hosts NAME</code>. Avoid assuming a CDN answer is the origin server.</p>
+<p><strong>Cleanup:</strong> no local settings changed. Queries can be logged by your resolver.</p>
+<p><strong>Reference:</strong> <a href="https://bind9.readthedocs.io/en/latest/manpages.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-nslookup"></a></p>
+<h2 id="nslookup">nslookup</h2>
+<p>Query DNS records and inspect resolver answers. Both tools are supplied by BIND utilities on typical Debian-based installations.</p>
+<h3 id="install-and-verify-13">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy dnsutils
+sudo apt install dnsutils
+nslookup -version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-13">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK. Start with a single name:</p>
+<pre><code class="language-bash">nslookup example.com
+nslookup -type=MX example.com
+nslookup example.com 192.168.56.1
+</code></pre>
+<p>The last command chooses the example lab resolver; replace it with one you use legitimately. Read which server answered and whether the result is authoritative. “Non-authoritative” commonly means a recursive resolver answered from cached/forwarded data, not that the result is invalid.</p>
+<h4 id="interactive-session">Interactive session</h4>
+<pre><code class="language-text">nslookup
+&gt; set type=AAAA
+&gt; example.com
+&gt; exit
+</code></pre>
+<p>Run <code>nslookup</code> in your terminal, then enter only the text after each <code>&gt;</code> prompt. It switches query type for subsequent requests.</p>
+<p><strong>Troubleshooting:</strong> NXDOMAIN, SERVFAIL and timeouts are different conditions. Compare a working name, the configured resolver and system resolution through getent. Do not replace system DNS just because one record type has no answer.</p>
+<p><strong>Cleanup:</strong> exit the interactive shell. These queries do not alter resolver configuration.</p>
+<p><strong>Reference:</strong> <a href="https://bind9.readthedocs.io/en/latest/manpages.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-getent"></a></p>
+<h2 id="getent">getent</h2>
+<p>Query the system name-service configuration, including hosts files and DNS where configured.</p>
+<h3 id="install-and-verify-14">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy libc-bin
+sudo apt install libc-bin
+getent --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-14">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT and possible NETWORK. libc-bin is a shared system package; getent normally exists already.</p>
+<pre><code class="language-bash">getent hosts localhost
+getent ahosts example.com
+getent passwd &quot;$USER&quot;
+</code></pre>
+<p>Hosts uses system NSS configuration; ahosts returns address-family-aware results. The passwd query prints the current user&#39;s account record, not password contents. Do not publish full account records unnecessarily.</p>
+<h4 id="compare-system-and-dns-resolution">Compare system and DNS resolution</h4>
+<pre><code class="language-bash">getent hosts app.test
+dig app.test A
+</code></pre>
+<p>A lab name in <code>/etc/hosts</code> may resolve through getent while dig reports no DNS record. That difference is expected because the tools consult different sources. Do not assume it means a tool is broken.</p>
+<p><strong>Troubleshooting:</strong> inspect the relevant line in <code>/etc/hosts</code> and the <code>hosts:</code> configuration in <code>/etc/nsswitch.conf</code> if you administer the machine. A missing result has a nonzero exit status; it can reflect absent records or service failures. Avoid dumping unrelated identity databases.</p>
+<p><strong>Cleanup:</strong> these commands make no configuration changes. Local hosts entries you deliberately added for another lab should be removed individually when no longer required.</p>
+<p><strong>Reference:</strong> <a href="https://manpages.debian.org/stable/manpages/getent.1.en.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-sysctl"></a></p>
+<h2 id="sysctl">sysctl</h2>
+<p>Inspect and deliberately change kernel runtime parameters. Most network failures do not require changing these settings.</p>
+<h3 id="install-and-verify-15">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy procps
+sudo apt install procps
+sysctl --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-15">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for reads; CHANGE for writes. procps is commonly installed already.</p>
+<pre><code class="language-bash">sysctl net.ipv4.ip_forward
+sysctl net.ipv6.conf.all.disable_ipv6
+sysctl net.ipv6.conf.default.disable_ipv6
+</code></pre>
+<p><code>ip_forward=0</code> disables IPv4 forwarding; <code>disable_ipv6=0</code> enables IPv6. Be precise about the name&#39;s negative wording.</p>
+<h4 id="save-a-baseline-before-any-justified-change">Save a baseline before any justified change</h4>
+<pre><code class="language-bash">sysctl net.ipv4.ip_forward &gt; forwarding-baseline.txt
+</code></pre>
+<p>This writes a note, not a restorable backup script. If a documented lab requires forwarding, first understand its routing/firewall implications. A temporary write uses <code>sudo sysctl -w KEY=VALUE</code> with a real key/value; restore the recorded value when finished.</p>
+<h4 id="persistent-settings">Persistent settings</h4>
+<p>For a deliberate persistent change, put only the intended key/value in a named file under <code>/etc/sysctl.d/</code>, then load that file with <code>sudo sysctl -p /etc/sysctl.d/FILENAME.conf</code>. Do not paste placeholder paths. <code>sysctl --system</code> loads many configuration files, so it can apply unrelated changes.</p>
+<p><strong>Troubleshooting:</strong> a missing key can mean unsupported kernel functionality. Permission denied usually indicates the write requires privileges or is restricted in a container. Do not turn IPv6 off/on globally as a universal VPN repair.</p>
+<p><strong>Cleanup:</strong> restore changed runtime values and remove only your own persistent configuration entry. Keep the baseline until restoration is confirmed.</p>
+<p><strong>Reference:</strong> <a href="https://manpages.debian.org/stable/procps/sysctl.8.en.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-burpsuite"></a></p>
+<h2 id="burp-suite-community">Burp Suite Community</h2>
+<p>Intercept, inspect and replay HTTP requests in a dedicated browser testing workflow. Community is free; Professional is a separate licensed product.</p>
+<h3 id="install-and-verify-16">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy burpsuite
+sudo apt install burpsuite
+burpsuite --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-16">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE; intercepted requests can change application state.</p>
+<h4 id="start-and-connect">Start and connect</h4>
+<pre><code class="language-bash">burpsuite
+</code></pre>
+<p>If the repository package is unavailable, download the Linux installer from PortSwigger&#39;s official download page. Verify its origin, select the build for your architecture and follow the installer; do not use keygens or cracked installers. GUI launchers may not implement <code>--help</code>; the installed app&#39;s About page shows its version.</p>
+<ol>
+<li>Create a temporary project if prompted and use the default configuration for your first lab.</li>
+<li>Open Proxy&#39;s built-in browser. Browse your own lab URL, such as the local HTTP server.</li>
+<li>Inspect Proxy → HTTP history. Keep Intercept off when you want requests to continue normally; turn it on only when ready to forward/drop paused requests.</li>
+</ol>
+<h4 id="replay-one-request">Replay one request</h4>
+<p>Send the <code>GET /hello.txt</code> request to Repeater. Send it unchanged and inspect 200/body, then change the path to <code>/missing.txt</code> and send again. Compare the 404 result. The built-in browser is already configured; external browsers require a dedicated proxy profile and the Burp CA for HTTPS interception.</p>
+<h4 id="save-evidence">Save evidence</h4>
+<p>Save the relevant raw HTTP request, not just the response HTML. Redact cookies/tokens before committing files. A raw request includes method/path, Host header, headers, blank line and optional body. Adding <code>url=file://...</code> is only a parameter; it does not create a file-read capability without a vulnerable application.</p>
+<p><strong>Troubleshooting:</strong> a “hanging” browser often has an intercepted request waiting. Port conflicts require changing proxy settings and browser configuration together. HTTPS errors in an external profile may require correct CA trust.</p>
+<p><strong>Cleanup:</strong> close the test browser, stop proxy listeners and restore any external browser proxy/CA changes. Keep interception CAs limited to test profiles.</p>
+<p><strong>Reference:</strong> <a href="https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-tar"></a></p>
+<h2 id="tar">tar</h2>
+<p>Create, list and extract archives; compression and archiving are separate steps combined by convenient options.</p>
+<h3 id="install-and-verify-17">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy tar
+sudo apt install tar
+tar --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-17">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT or WRITE. Work in an empty destination and avoid sudo for ordinary extraction.</p>
+<pre><code class="language-bash">tar -tf archive.tar.gz
+mkdir -p extracted
+tar -xzf archive.tar.gz -C extracted
+</code></pre>
+<p><code>-t</code> lists, <code>-x</code> extracts, <code>-z</code> handles gzip, <code>-f</code> supplies the archive file and <code>-C</code> changes extraction directory. The filename must follow <code>-f</code> correctly; <code>-f</code> is not required to be the final flag. GNU tar can auto-detect common compression when extracting with <code>tar -xf</code>.</p>
+<h4 id="back-up-a-folder-and-verify-it">Back up a folder and verify it</h4>
+<pre><code class="language-bash">tar -czf notes-backup.tar.gz notes/
+tar -tf notes-backup.tar.gz
+</code></pre>
+<p><code>-c</code> creates a new archive. This overwrites an existing output archive, so choose a new backup filename. To restore, extract into a new directory rather than over the live files and compare contents.</p>
+<p><strong>Troubleshooting:</strong> “not in gzip format” can mean the suffix does not match the content or the download is an error page. Inspect before extraction. Absolute/traversal paths, links and decompression size can make unknown archives dangerous; avoid privileged extraction and inspect member names/size.</p>
+<p><strong>Cleanup:</strong> remove only your generated archive or known restored files after confirming the source remains intact. Follow the archive practice lab for exact temporary-file cleanup.</p>
+<p><strong>Reference:</strong> <a href="https://www.gnu.org/software/tar/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-routersploit"></a></p>
+<h2 id="routersploit">RouterSploit</h2>
+<p>Explore embedded-device module metadata in an isolated, firmware-specific lab. Historical dependencies may not support a modern Parrot release.</p>
+<h3 id="install-and-verify-18">Install and verify</h3>
+<p>Use a separate user-owned checkout and inspect upstream requirements first:</p>
+<pre><code class="language-bash">sudo apt install git python3-venv
+mkdir -p ~/tools
+git clone https://github.com/threat9/routersploit.git ~/tools/routersploit
+cd ~/tools/routersploit
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python rsf.py
+</code></pre>
+<p>An existing destination must be inspected rather than overwritten. Dependency installation can execute build code. Upstream compatibility must be checked; no claim is made that all dependencies work on current Parrot. Python 2 packages such as python-pip/python-dev are not a valid modern setup.</p>
+<h3 id="use-it-in-practice-18">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK/WRITE during installation; selected modules may change or destabilize devices.</p>
+<h4 id="launch-in-its-isolated-environment">Launch in its isolated environment</h4>
+<pre><code class="language-bash">cd ~/tools/routersploit
+source .venv/bin/activate
+python rsf.py
+</code></pre>
+<p>Inside the framework, start with <code>help</code>. Use tab completion and the installed module descriptions instead of an old fixed list. Do not assume a scanner or a check is passive; read the module implementation/documentation before running it.</p>
+<h4 id="practical-identification-workflow">Practical identification workflow</h4>
+<ol>
+<li>On your own router, read its administration page or label for exact model/hardware revision and firmware version.</li>
+<li>Compare that version to the vendor&#39;s advisory and RouterSploit module description.</li>
+<li>Use module <code>show options</code>/help as provided by the current shell to understand target fields. Do not run an exploit against a merely similar device name.</li>
+<li>Prefer updating and validating vendor firmware in a disposable spare-device lab before any intrusive validation.</li>
+</ol>
+<p><strong>Troubleshooting:</strong> modern Python/build dependency failures may mean the project needs an older supported isolated environment. Use an upstream-documented disposable VM/container; do not downgrade Parrot&#39;s system Python. A module not present is a version difference, not permission to choose a random exploit.</p>
+<p><strong>Cleanup:</strong> exit the framework, deactivate the venv, stop lab services and restore your spare device&#39;s known-good configuration/firmware as appropriate. Preserve source commit/version with notes.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/threat9/routersploit">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-crackmapexec"></a></p>
+<h2 id="crackmapexec-migration">CrackMapExec migration</h2>
+<p>Understand older CME notes and move new workflows to NetExec without assuming command-line flags are identical.</p>
+<h3 id="install-and-verify-19">Install and verify</h3>
+<p>For new Parrot installations, use the <a href="#program-netexec">NetExec installation guide</a>. This migration page intentionally does not recommend a fresh legacy CME installation. Query an existing command with <code>command -v crackmapexec</code> before deciding whether to retain it.</p>
+<h3 id="use-it-in-practice-19">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for migration preparation; legacy commands can perform NETWORK actions.</p>
+<h4 id="identify-what-is-installed">Identify what is installed</h4>
+<pre><code class="language-bash">command -v crackmapexec
+command -v nxc
+apt policy crackmapexec netexec
+</code></pre>
+<p>A missing command simply means it is not on PATH. Do not install an unmaintained fork merely to reproduce an old cheat-sheet line.</p>
+<h4 id="migration-example">Migration example</h4>
+<p>Old notes often contain <code>crackmapexec smb HOST</code>. For a new setup, install NetExec using its dedicated guide and start with:</p>
+<pre><code class="language-bash">nxc smb --help
+nxc smb 192.168.56.20
+</code></pre>
+<p>For authenticated share or policy enumeration, use a designated lab account and validate current flags. Re-check output format, workspace behavior and credential handling before converting scripts. A filename change alone is not a tested migration.</p>
+<p><strong>Troubleshooting:</strong> both tools on PATH can lead to testing one build while reading another&#39;s documentation. Record exact executables and versions. Preserve old reports before removing a legacy installation and avoid automatic conversion of post-exploitation commands.</p>
+<p><strong>Cleanup:</strong> retire the old tool only through the manager that installed it after you no longer need its data. The new workflow is documented in <a href="#program-netexec">NetExec</a>.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/Pennyw0rth/NetExec">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-netexec"></a></p>
+<h2 id="netexec">NetExec</h2>
+<p>Assess protocol configuration and permitted account access in Windows/AD labs. The primary CLI is commonly nxc; verify installed entry points.</p>
+<h3 id="install-and-verify-20">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy netexec
+sudo apt install netexec
+nxc --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-20">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; authenticated enumeration can produce audit events. APT availability depends on Parrot release.</p>
+<h4 id="isolated-upstream-fallback">Isolated upstream fallback</h4>
+<p>If no Parrot package candidate exists, use a user-level pipx install instead of mixing distributions:</p>
+<pre><code class="language-bash">sudo apt install pipx git
+pipx ensurepath
+pipx install git+https://github.com/Pennyw0rth/NetExec
+</code></pre>
+<p>Open a new terminal. Read the upstream supported Python/build requirements if dependencies fail; some builds require Python headers or Rust. Record the source commit/version.</p>
+<h4 id="discover-one-lab-smb-endpoint">Discover one lab SMB endpoint</h4>
+<pre><code class="language-bash">nxc smb 192.168.56.20
+nxc smb --help
+</code></pre>
+<p>This reports available SMB/OS/domain clues where the server permits them; unauthenticated metadata is not proof of compromise.</p>
+<h4 id="inspect-shares-with-a-designated-account">Inspect shares with a designated account</h4>
+<pre><code class="language-bash">read -r -s -p &#39;Disposable lab password: &#39; lab_password
+printf &#39;\n&#39;
+nxc smb 192.168.56.20 -u labuser -p &quot;$lab_password&quot; --shares
+unset lab_password
+</code></pre>
+<p>Use only the credentials supplied for the lab. Passwords expanded on the command line can be visible to local process observers even if not in shell history. <code>--pass-pol</code> queries policy where supported/authorized. Do not supply random passwords as a substitute for guest access.</p>
+<p><strong>Troubleshooting:</strong> domain names, target resolution, time synchronization and SMB policy affect authentication. An “admin” marker is a tool interpretation to validate, not a guarantee that every action succeeds. No “stealth” claim guarantees evasion.</p>
+<p><strong>Cleanup:</strong> close the tool and protect its workspace/database. Update a pipx install with pipx, and an APT install with APT; do not maintain both unknowingly.</p>
+<p><strong>Reference:</strong> <a href="https://www.netexec.wiki/getting-started/installation/installation-on-unix">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-smbclient"></a></p>
+<h2 id="smbclient">smbclient</h2>
+<p>Browse authorized Windows/Samba shares with an interactive client and prompted credentials.</p>
+<h3 id="install-and-verify-21">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy smbclient
+sudo apt install smbclient
+smbclient --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-21">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; downloads WRITE locally, uploads WRITE remotely. Prerequisites: an actual lab SMB server, a named share and a permitted test account.</p>
+<pre><code class="language-bash">smbclient -L 192.168.56.20 -U labuser
+smbclient //192.168.56.20/Data -U labuser
+</code></pre>
+<p>Replace host, account and Data share with values provided by your lab. Enter the password at the prompt. Listing shares is not user enumeration. For a deliberately guest-enabled lab, <code>-N</code> skips the password prompt; it does not bypass authentication.</p>
+<h4 id="inside-the-smb-prompt">Inside the SMB prompt</h4>
+<pre><code class="language-text">help
+ls
+cd documents
+lcd /tmp
+get example.txt
+quit
+</code></pre>
+<p>Use only a folder/file that actually exists. <code>cd</code> changes the remote location; <code>lcd</code> changes the local download directory. <code>get</code> copies a remote file locally; <code>put</code> uploads and changes the server. A read-only exercise needs no upload.</p>
+<h4 id="domain-account">Domain account</h4>
+<pre><code class="language-bash">smbclient -L 192.168.56.20 -U &#39;LAB/labuser&#39;
+</code></pre>
+<p>Your server determines accepted domain/workgroup naming. Prefer a prompted password rather than embedding it in the account string.</p>
+<p><strong>Troubleshooting:</strong> access denied can reflect credentials or share/filesystem permissions. A visible share may still be unreadable. Check server policy rather than forcing SMB1 or weakening authentication.</p>
+<p><strong>Cleanup:</strong> quit the client and remove only the authorized test downloads you no longer need; do not delete remote files as local cleanup.</p>
+<p><strong>Reference:</strong> <a href="https://www.samba.org/samba/docs/current/man-html/smbclient.1.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-cifs-utils"></a></p>
+<h2 id="cifs-mounts--cifs-utils">CIFS mounts / cifs-utils</h2>
+<p>Mount an SMB share into the local filesystem with explicit permissions and a clear unmount step.</p>
+<h3 id="install-and-verify-22">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy cifs-utils
+sudo apt install cifs-utils
+mount.cifs -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-22">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and MOUNT; writable mounts can change remote files. Use a read-only mount first.</p>
+<pre><code class="language-bash">sudo mkdir -p /mnt/lab-data
+sudo mount -t cifs //192.168.56.20/Data /mnt/lab-data -o username=labuser,ro
+findmnt /mnt/lab-data
+ls -la /mnt/lab-data
+</code></pre>
+<p>Substitute your server/share/account and enter the password at the prompt. <code>ro</code> requests read-only access from this mount. This does not change the underlying account&#39;s server-side permissions.</p>
+<h4 id="inspect-files">Inspect files</h4>
+<pre><code class="language-bash">find /mnt/lab-data -maxdepth 2 -type f -ls
+</code></pre>
+<p>Restrict depth to avoid traversing a large share. Opening files can still generate network traffic and server audit events. Do not put passwords directly in command history. For persistent mounts, use a root-owned credentials file with restrictive permissions and the documented fstab options; do not improvise a public credentials path.</p>
+<h4 id="unmount">Unmount</h4>
+<pre><code class="language-bash">cd ~
+sudo umount /mnt/lab-data
+sudo rmdir /mnt/lab-data
+</code></pre>
+<p>Only remove the empty mountpoint after successful unmount. Never recursively delete a mounted share to clean up the local directory.</p>
+<p><strong>Troubleshooting:</strong> “busy” means a process still uses the mount; close viewers/shells and retry normally. Permission errors require server/account checks. Protocol negotiation problems should be resolved with a supported server/client version, not routine SMB1 enablement.</p>
+<p><strong>Cleanup:</strong> unmount successfully before removing the empty mountpoint. Do not recursively delete a mounted remote share.</p>
+<p><strong>Reference:</strong> <a href="https://manpages.debian.org/stable/cifs-utils/mount.cifs.8.en.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-smbmap"></a></p>
+<h2 id="smbmap">SMBMap</h2>
+<p>Summarize SMB shares and effective permissions for an authorized account.</p>
+<h3 id="install-and-verify-23">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy smbmap
+sudo apt install smbmap
+smbmap --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-23">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; permission checks may WRITE test files unless disabled. Read help for your installed release before assessing a production share.</p>
+<pre><code class="language-bash">smbmap -H 192.168.56.20 --no-write-check
+</code></pre>
+<p><code>-H</code> selects one host. Current upstream supports <code>--no-write-check</code>; confirm it in local help. This example attempts unauthenticated access and may show no shares. It does not bypass permissions.</p>
+<h4 id="authenticated-lab-inventory">Authenticated lab inventory</h4>
+<pre><code class="language-bash">read -r -s -p &#39;Disposable lab password: &#39; lab_password
+printf &#39;\n&#39;
+smbmap -H 192.168.56.20 -u labuser -p &quot;$lab_password&quot; --no-write-check
+unset lab_password
+</code></pre>
+<p>The shell prompt avoids storing the literal password in history, but the expanded password can still appear in process arguments. Use only disposable lab credentials for this example, and prefer a supported secure credential method in real assessments. Review READ/WRITE claims in context; skipping write checks limits what can be confirmed.</p>
+<h4 id="validate-a-result">Validate a result</h4>
+<p>Connect to a reported share with smbclient and list a known harmless folder. Share access and nested file permissions may differ.</p>
+<p><strong>Troubleshooting:</strong> blank output can be failed/guest authentication, filtering or no permitted shares. Domain settings and SMB support matter. Do not enable arbitrary execution or automatic downloads merely to list permissions.</p>
+<p><strong>Cleanup:</strong> stop the tool and protect results. If you intentionally enabled write checks, verify any test artifacts were removed according to the installed version&#39;s behavior.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/ShawnDEvans/smbmap">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-impacket"></a></p>
+<h2 id="impacket">Impacket</h2>
+<p>Python protocol libraries and example clients for Windows/SMB and related network protocols.</p>
+<h3 id="install-and-verify-24">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy python3-impacket impacket-scripts
+sudo apt install python3-impacket impacket-scripts
+dpkg -L impacket-scripts
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-24">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK for clients, WRITE for installs/downloads. Package splits and entry-point names vary; check APT candidates individually before installation.</p>
+<h4 id="upstream-isolated-fallback">Upstream isolated fallback</h4>
+<pre><code class="language-bash">sudo apt install pipx
+pipx install impacket
+pipx list
+</code></pre>
+<p>Do this only when deliberately choosing upstream instead of the distribution copy. The upstream example may be <code>smbclient.py</code>, while a distro wrapper may be <code>impacket-smbclient</code>.</p>
+<h4 id="locate-and-run-a-permitted-client">Locate and run a permitted client</h4>
+<pre><code class="language-bash">command -v impacket-smbclient
+command -v smbclient.py
+</code></pre>
+<p>If your installed wrapper is impacket-smbclient, use:</p>
+<pre><code class="language-bash">impacket-smbclient -h
+impacket-smbclient &#39;LAB/labuser@192.168.56.20&#39;
+</code></pre>
+<p>Enter the password when prompted rather than placing it in the target string. In the client, use <code>help</code>, <code>shares</code>, <code>use Data</code>, <code>ls</code> and <code>exit</code> with actual authorized share names. This is a protocol-learning workflow, not remote execution.</p>
+<h4 id="verify-the-result">Verify the result</h4>
+<p>Compare a known share/file listing with Samba smbclient. Differences can reflect negotiation/authentication details, not necessarily a vulnerability.</p>
+<p><strong>Troubleshooting:</strong> “command not found” often reflects the packaging prefix or pipx PATH. Kerberos needs appropriate DNS/time/realm configuration; do not switch to credential-dumping examples to diagnose a file listing.</p>
+<p><strong>Cleanup:</strong> exit the client and remove only authorized local downloads. Update/remove through the selected manager, preserving any needed test reports.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/fortra/impacket">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-nmap"></a></p>
+<h2 id="nmap">Nmap</h2>
+<p>Discover hosts, inspect ports and identify services within an explicitly authorized scope.</p>
+<h3 id="install-and-verify-25">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy nmap
+sudo apt install nmap
+nmap --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-25">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; some probes/scripts can affect services. Begin with the local HTTP practice lab.</p>
+<pre><code class="language-bash">nmap -sT -p 8000 127.0.0.1
+nmap -sV -p 8000 127.0.0.1
+</code></pre>
+<p><code>-sT</code> completes TCP connections; <code>-sV</code> sends identification probes. An open port means a service accepted connections; a service label may just be a database guess.</p>
+<h4 id="inventory-a-single-lab-host">Inventory a single lab host</h4>
+<pre><code class="language-bash">mkdir -p results
+nmap -sT --top-ports 20 -oA results/initial 192.168.56.20
+nmap -sV -p 22,80,443 -oN results/services.txt 192.168.56.20
+</code></pre>
+<p>Choose ports from observed results rather than assuming the example host has them. <code>-oA</code> creates three formats. <code>-p-</code> covers TCP 1–65535; UDP needs <code>-sU</code> and generally privileges. Large scans cost time/traffic.</p>
+<h4 id="discovery-and-scripts">Discovery and scripts</h4>
+<pre><code class="language-bash">nmap -sn 192.168.56.0/24
+nmap --script-help http-title
+nmap --script http-title -p 80,443 192.168.56.20
+</code></pre>
+<p>Only scan an authorized subnet. <code>-sn</code> skips port scanning; <code>-Pn</code> instead skips host discovery and treats targets as up. Inspect scripts before running; <code>--script vuln</code> is not a comprehensive safe audit.</p>
+<p><strong>Troubleshooting:</strong> filtered is uncertainty, not closed. Wrong VPN routes, target state and firewall behavior affect results. Raw SYN/OS scans need appropriate privileges. <code>-p</code> takes ports, not IP ranges.</p>
+<p><strong>Cleanup:</strong> stop unfinished scans with Ctrl+C and retain only appropriately protected/redacted results.</p>
+<p><strong>Reference:</strong> <a href="https://nmap.org/book/man.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-curl"></a></p>
+<h2 id="curl">curl</h2>
+<p>Send HTTP requests and inspect responses without a browser.</p>
+<h3 id="install-and-verify-26">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy curl
+sudo apt install curl
+curl --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-26">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and optional WRITE. Start the local HTTP lab first.</p>
+<pre><code class="language-bash">curl -i http://127.0.0.1:8000/hello.txt
+curl -I http://127.0.0.1:8000/hello.txt
+curl -o saved-hello.txt http://127.0.0.1:8000/hello.txt
+</code></pre>
+<p><code>-i</code> includes response headers; <code>-I</code> sends HEAD, which some servers handle differently; <code>-o</code> writes the body to a file and overwrites that path.</p>
+<h4 id="bounded-request-and-structured-body">Bounded request and structured body</h4>
+<pre><code class="language-bash">curl --connect-timeout 5 --max-time 15 -L --max-redirs 3 http://127.0.0.1:8000/
+curl -i -H &#39;Content-Type: application/json&#39; --data &#39;{&quot;message&quot;:&quot;hello&quot;}&#39; http://127.0.0.1:8000/api
+</code></pre>
+<p>The second example demonstrates JSON POST formatting; the simple Python file server does not implement this API and should reject POST. Use your own app implementing <code>/api</code> to test success. <code>-L</code> follows redirects; avoid forwarding secrets to unrelated destinations.</p>
+<h4 id="exit-status-versus-http-status">Exit status versus HTTP status</h4>
+<pre><code class="language-bash">curl --fail-with-body -sS http://127.0.0.1:8000/missing.txt
+</code></pre>
+<p>By default curl can exit successfully even for HTTP errors. <code>--fail-with-body</code> makes HTTP 400+ produce a failure status while retaining the body; older builds may need <code>--fail</code> instead.</p>
+<p><strong>Troubleshooting:</strong> error 6 is resolution, 7 connection failure, and certificate errors need fixing trust/hostname/time. Do not routinely use <code>-k</code>.</p>
+<p><strong>Cleanup:</strong> delete only response files you created, and protect requests containing credentials.</p>
+<p><strong>Reference:</strong> <a href="https://curl.se/docs/manpage.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-wget"></a></p>
+<h2 id="wget">Wget</h2>
+<p>Download a resource to a local file with clear filename and timeout controls.</p>
+<h3 id="install-and-verify-27">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy wget
+sudo apt install wget
+wget --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-27">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE. Run the local HTTP lab and download its harmless text file:</p>
+<pre><code class="language-bash">wget --timeout=15 --tries=1 -O wget-hello.txt http://127.0.0.1:8000/hello.txt
+cat wget-hello.txt
+</code></pre>
+<p><code>-O</code> sets the destination and can truncate/overwrite it; do not point it at an important file. Check that the body is expected before executing or trusting any download.</p>
+<h4 id="inspect-server-response">Inspect server response</h4>
+<pre><code class="language-bash">wget --server-response --spider http://127.0.0.1:8000/hello.txt
+</code></pre>
+<p>Spider checks availability without deliberately saving the resource as a normal download. Server behavior varies; read the method/status output. A successful download does not authenticate a publisher by itself.</p>
+<h4 id="resume-a-large-known-download">Resume a large known download</h4>
+<p><code>wget -c URL</code> attempts continuation when the server supports it. Use this only for the same resource; if the remote file changed, verify the final checksum. Do not run recursive mirroring against a site without considering scope, traffic and ownership.</p>
+<p><strong>Troubleshooting:</strong> a downloaded HTML error page is not the expected executable/archive. Check status, filename and publisher checksum. Certificate errors should be fixed through trust/time/name configuration, not bypassed globally.</p>
+<p><strong>Cleanup:</strong> remove <code>wget-hello.txt</code> if it was generated solely for this example.</p>
+<p><strong>Reference:</strong> <a href="https://www.gnu.org/software/wget/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-gobuster"></a></p>
+<h2 id="gobuster">Gobuster</h2>
+<p>Enumerate web paths, DNS names or virtual hosts with explicit mode-specific options.</p>
+<h3 id="install-and-verify-28">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy gobuster
+sudo apt install gobuster
+gobuster --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-28">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE. Begin with the local HTTP lab and a three-entry wordlist.</p>
+<pre><code class="language-bash">printf &#39;%s\n&#39; hello.txt missing.txt robots.txt &gt; lab-paths.txt
+gobuster dir -u http://127.0.0.1:8000 -w lab-paths.txt -t 2 -o gobuster-lab.txt
+</code></pre>
+<p><code>dir</code> selects path enumeration; <code>-u</code> is the base URL; <code>-w</code> supplies candidates; <code>-t</code> limits concurrent workers. Expect hello.txt to exist; independently verify results with curl. <code>-o</code> writes results.</p>
+<h4 id="file-extensions-and-lab-virtual-hosts">File extensions and lab virtual hosts</h4>
+<pre><code class="language-bash">gobuster dir --help
+gobuster dir -u http://127.0.0.1:8000 -w names.txt -x txt,html -t 2
+gobuster vhost -u http://app.test --append-domain -w labels.txt -t 2
+</code></pre>
+<p>Create <code>names.txt</code> with bare stems such as <code>hello</code>; do not reuse <code>hello.txt</code> when appending <code>.txt</code>. The vhost example needs app.test resolving to your lab web server and labels.txt containing short labels such as dev. It tests HTTP Host routing, not DNS existence. <code>--append-domain</code> builds full hostnames from labels.</p>
+<h4 id="dns-mode">DNS mode</h4>
+<p>Read <code>gobuster dns --help</code> for the installed build: domain flag names changed across versions. Do not copy the old global <code>-m dir</code> interface.</p>
+<p><strong>Troubleshooting:</strong> a wildcard/custom error page may match every word. Request a random nonexistent path, compare response length/status and set only filters supported by your release. Follow redirects intentionally. TLS bypass does not repair certificates.</p>
+<p><strong>Cleanup:</strong> Ctrl+C stops requests; remove generated test files/results only after reviewing evidence.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/OJ/gobuster">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-seclists"></a></p>
+<h2 id="seclists">SecLists</h2>
+<p>A collection of test wordlists for discovery and security exercises. It is data, not an executable scanner.</p>
+<h3 id="install-and-verify-29">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy seclists
+sudo apt install seclists
+dpkg -L seclists
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-29">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for list selection; copying/writing lists is WRITE. Installation may require significant disk space; read APT&#39;s size estimate.</p>
+<pre><code class="language-bash">dpkg -L seclists | less
+find /usr/share/seclists -type f -iname &#39;*common*&#39;
+</code></pre>
+<p>The <code>/usr/share/seclists</code> path is a common location, not guaranteed. Use the path actually reported by dpkg. If your repositories do not package it, clone the official danielmiessler/SecLists repository into your own tools directory and record its commit.</p>
+<h4 id="inspect-and-select-a-list">Inspect and select a list</h4>
+<pre><code class="language-bash">head -n 20 /path/to/chosen-list.txt
+wc -l /path/to/chosen-list.txt
+</code></pre>
+<p>Replace the placeholder path. A short technology-appropriate list is a better starting point than an enormous catch-all. Review content and encoding before feeding a tool.</p>
+<h4 id="small-self-contained-practice-list">Small self-contained practice list</h4>
+<pre><code class="language-bash">printf &#39;%s\n&#39; hello.txt missing.txt robots.txt &gt; lab-paths.txt
+</code></pre>
+<p>Use this with ffuf/Gobuster against the local HTTP lab. It gives predictable positive and negative results without needing a large package.</p>
+<p><strong>Troubleshooting:</strong> a missing <code>/opt/SecLists</code> folder is a path assumption, not a broken scanner. Full-domain lists and label-only subdomain lists need different vhost settings. A list can contain comments or unusual characters; know your tool&#39;s parsing behavior.</p>
+<p><strong>Cleanup:</strong> remove only your lab-generated list. Do not store real users&#39; secrets in shared wordlists.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/danielmiessler/SecLists">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-nikto"></a></p>
+<h2 id="nikto">Nikto</h2>
+<p>Check web servers for known risky files, outdated components and configuration clues. Findings need manual validation.</p>
+<h3 id="install-and-verify-30">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy nikto
+sudo apt install nikto
+nikto -Version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-30">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE; active checks can be noisy. Use your isolated web lab.</p>
+<pre><code class="language-bash">nikto -Help
+nikto -h http://127.0.0.1:8000 -o nikto-lab.txt -Format txt
+</code></pre>
+<p><code>-h</code> sets the target URL, <code>-o</code> writes findings and <code>-Format</code> selects an output formatter. Read any scan errors, not just finding counts. The simple Python server may produce little meaningful vulnerability coverage; a deliberately configured lab web app is a richer exercise.</p>
+<h4 id="investigate-one-finding">Investigate one finding</h4>
+<ol>
+<li>Read its exact URL, method and evidence.</li>
+<li>Request that resource manually through curl or Burp within scope.</li>
+<li>Check the response body instead of treating a status code alone as proof.</li>
+<li>Compare the installed server&#39;s actual version/configuration with vendor guidance before declaring it vulnerable.</li>
+</ol>
+<p>Nikto is a web-server scanner, not a general OS-identification tool. Proxy/user-agent options do not make a test invisible or authorized. Package-provided launchers avoid assuming nikto.pl lives in the current folder.</p>
+<p><strong>Troubleshooting:</strong> connection refusal means no service accepted that address/port. A reverse proxy, authentication gateway or custom errors can distort findings. Limit the target/scope and use the installed help for options controlling duration/plugins.</p>
+<p><strong>Cleanup:</strong> Ctrl+C stops the scan; protect the report because paths/version details can be sensitive. Update the installed package through its original manager rather than mixing untracked source updates into APT files.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/sullo/nikto/wiki">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-wfuzz"></a></p>
+<h2 id="wfuzz">Wfuzz</h2>
+<p>Fuzz paths or request parameters with payload generators and filters based on response properties.</p>
+<h3 id="install-and-verify-31">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy wfuzz
+sudo apt install wfuzz
+wfuzz --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-31">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK. Use a short list against the local HTTP lab.</p>
+<pre><code class="language-bash">printf &#39;%s\n&#39; hello.txt missing.txt robots.txt &gt; lab-paths.txt
+wfuzz -w lab-paths.txt &#39;http://127.0.0.1:8000/FUZZ&#39;
+wfuzz --hc 404 -w lab-paths.txt &#39;http://127.0.0.1:8000/FUZZ&#39;
+</code></pre>
+<p>The first pass establishes actual responses. The second hides HTTP 404 only after that status has been confirmed as a reliable negative. <code>FUZZ</code> marks substitution; <code>-w</code> chooses the list.</p>
+<h4 id="numeric-parameter-example">Numeric parameter example</h4>
+<pre><code class="language-bash">wfuzz -z range,0-3 &#39;http://127.0.0.1:8000/item?id=FUZZ&#39;
+</code></pre>
+<p>A local application must implement this endpoint for meaningful results. <code>-z range,0-3</code> generates four candidate values. The static file-server lab does not have an item database.</p>
+<h4 id="understand-filtering">Understand filtering</h4>
+<p><code>--hc</code> hides status codes, <code>--hl</code> hides line counts and <code>--hw</code> hides word counts. Derive values from your app; a copied <code>--hl 97</code> can conceal real content or do nothing. Run <code>wfuzz --help</code> to see your installed build&#39;s thread/output options before increasing traffic.</p>
+<p><strong>Troubleshooting:</strong> a custom 200 error page needs body/size-based analysis. HTTPS support can depend on PycURL&#39;s SSL backend; use the supported package environment rather than breaking system Python to repair it.</p>
+<p><strong>Cleanup:</strong> stop with Ctrl+C. If you saved output, remove secrets before sharing. No listener is created by these examples.</p>
+<p><strong>Reference:</strong> <a href="https://wfuzz.readthedocs.io/en/latest/user/basicusage.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-ffuf"></a></p>
+<h2 id="ffuf">ffuf</h2>
+<p>Replace a FUZZ marker in HTTP requests with wordlist entries, with calibration, rate limits and structured output.</p>
+<h3 id="install-and-verify-32">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy ffuf
+sudo apt install ffuf
+ffuf -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-32">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE. With the local HTTP lab running:</p>
+<pre><code class="language-bash">printf &#39;%s\n&#39; hello.txt missing.txt robots.txt &gt; lab-paths.txt
+ffuf -u http://127.0.0.1:8000/FUZZ -w lab-paths.txt -t 2 -rate 5 -ac -of json -o ffuf-lab.json
+</code></pre>
+<p><code>FUZZ</code> is substituted once per word. <code>-t</code> controls concurrent workers; <code>-rate</code> limits requests per second. <code>-ac</code> calibrates filtering; <code>-of json</code> chooses format and <code>-o</code> saves a report.</p>
+<h4 id="examine-positives">Examine positives</h4>
+<pre><code class="language-bash">jq &#39;.results[] | {url, status, length}&#39; ffuf-lab.json
+curl -i http://127.0.0.1:8000/hello.txt
+</code></pre>
+<p>Validate responses independently; calibration can hide useful results. <code>jq</code> is optional and separately installed. <code>-mc</code> chooses matching status codes and <code>-fc</code> excludes codes; decide based on the application&#39;s real negative response.</p>
+<h4 id="test-a-query-parameter">Test a query parameter</h4>
+<pre><code class="language-bash">ffuf -u &#39;http://127.0.0.1:8000/search?q=FUZZ&#39; -w terms.txt -t 2 -rate 5
+</code></pre>
+<p>This needs a real local application implementing <code>/search</code> and a short terms.txt. The static Python file server does not implement search. Quote URLs so the shell does not interpret query delimiters.</p>
+<p><strong>Troubleshooting:</strong> inspect a known valid and a known invalid request before tuning filters. Login redirects, CSRF state and expiring cookies can invalidate results. Never publish real tokens inside saved commands.</p>
+<p><strong>Cleanup:</strong> stop the run, close the test server when finished, and redact/archive results as appropriate.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/ffuf/ffuf">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-postgresql"></a></p>
+<h2 id="postgresql-service-for-labs">PostgreSQL service for labs</h2>
+<p>Provide the optional database used by Metasploit workspaces. Service installation and database initialization are separate actions.</p>
+<h3 id="install-and-verify-33">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy postgresql
+sudo apt install postgresql
+psql --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-33">Use it in practice</h3>
+<p><strong>Impact:</strong> CHANGE; service starts may expose a listener according to its configuration. Install only if you need a local database. Do not reuse production data for security-tool experiments.</p>
+<pre><code class="language-bash">sudo systemctl start postgresql
+systemctl status postgresql --no-pager
+pg_lsclusters
+</code></pre>
+<p>Debian-family packaging can have a meta-service and versioned clusters. A successful meta-service status alone does not prove a cluster is accepting connections; inspect actual cluster state.</p>
+<h4 id="local-readiness-and-identity">Local readiness and identity</h4>
+<pre><code class="language-bash">pg_isready
+sudo -u postgres psql -c &#39;SELECT version();&#39;
+</code></pre>
+<p>The second command uses the local postgres service account with packaging-default local access assumptions. It prints a version query and does not create a database. Do not weaken pg_hba.conf or expose the database publicly merely to make local tools work.</p>
+<h4 id="metasploit-integration">Metasploit integration</h4>
+<p>Use the Metasploit package&#39;s supported <code>msfdb init</code> helper when supplied. This creates the dedicated database/role it needs. <code>db_status</code> is then run inside msfconsole, not the Linux shell.</p>
+<p><strong>Troubleshooting:</strong> verify the correct cluster, socket/port and authentication rules. On installations with an existing cluster, preserve databases and configuration; never delete the data directory as a first fix.</p>
+<p><strong>Cleanup:</strong> if no other applications need the lab service, <code>sudo systemctl stop postgresql</code> stops it. Stopping does not delete databases. Remove only a confirmed disposable database through documented PostgreSQL administration after backup.</p>
+<p><strong>Reference:</strong> <a href="https://www.postgresql.org/docs/current/tutorial-start.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-metasploit"></a></p>
+<h2 id="metasploit-framework">Metasploit Framework</h2>
+<p>Organize authorized testing modules and evidence in workspaces. Framework is distinct from licensed Metasploit Pro.</p>
+<h3 id="install-and-verify-34">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy metasploit-framework
+sudo apt install metasploit-framework
+msfconsole --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-34">Use it in practice</h3>
+<p><strong>Impact:</strong> CHANGE for database setup, NETWORK for module execution. Work against a disposable lab.</p>
+<pre><code class="language-bash">sudo systemctl start postgresql
+command -v msfdb
+sudo msfdb init
+msfconsole
+</code></pre>
+<p>Run initialization only if this package supplies msfdb and its instructions call for it. Missing helpers require the package/upstream database setup, not guessed commands. Database support is optional for some Framework tasks.</p>
+<h4 id="inside-msfconsole">Inside msfconsole</h4>
+<pre><code class="language-text">db_status
+workspace -a local-http
+search type:auxiliary name:http_version
+use auxiliary/scanner/http/http_version
+info
+show options
+set RHOSTS 127.0.0.1
+set RPORT 8000
+run
+back
+hosts
+services
+</code></pre>
+<p>Start the local HTTP lab first. The module inspects HTTP version clues; banners are not conclusive software evidence. <code>info</code> documents behavior and <code>show options</code> identifies required values. A module supporting <code>check</code> may still send active probes; not every module has it.</p>
+<h4 id="session-and-option-terminology">Session and option terminology</h4>
+<p>RHOSTS is the module&#39;s target selection; RPORT is its service port. LHOST/LPORT describe listener/callback settings for payloads that use them. A database workspace organizes evidence; it does not isolate network traffic.</p>
+<p><strong>Troubleshooting:</strong> disconnected database status requires checking the exact install&#39;s DB configuration. Empty hosts/services can reflect no DB connection or no recorded scan. Framework does not imply a Pro web interface on port 3790.</p>
+<p><strong>Cleanup:</strong> use <code>jobs</code> and <code>sessions -l</code> to identify your active tasks, stop only your lab tasks, and <code>exit</code> the console. Stop the optional database only if nothing else needs it.</p>
+<p><strong>Reference:</strong> <a href="https://docs.metasploit.com/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-meterpreter"></a></p>
+<h2 id="meterpreter-sessions">Meterpreter sessions</h2>
+<p>Interact with an existing authorized lab session using platform-supported commands. Meterpreter is a payload/session type, not an independent desktop package.</p>
+<h3 id="install-and-verify-35">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy metasploit-framework
+sudo apt install metasploit-framework
+msfconsole --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-35">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for inventory; other session commands can WRITE, capture data or change the target. Prerequisite: an existing session deliberately established in a controlled lab; this page does not assume an arbitrary target is accessible.</p>
+<h4 id="select-the-session-in-msfconsole">Select the session in msfconsole</h4>
+<pre><code class="language-text">sessions -l
+sessions -i 1
+</code></pre>
+<p>Replace 1 with the actual ID you are permitted to use. Inside the Meterpreter prompt:</p>
+<pre><code class="language-text">help
+sysinfo
+getuid
+pwd
+ls
+ps
+</code></pre>
+<p>Commands depend on OS, extensions and session type. Help is authoritative for that session. sysinfo and getuid identify environment/current identity; they do not elevate privileges.</p>
+<h4 id="understand-local-versus-remote-paths">Understand local versus remote paths</h4>
+<pre><code class="language-text">lpwd
+lls
+pwd
+ls
+background
+</code></pre>
+<p><code>lpwd</code>/<code>lls</code> refer to the operator&#39;s machine; pwd/ls refer to the target. Background returns to msfconsole without terminating the session. To resume, use sessions -i with its ID.</p>
+<h4 id="end-the-session">End the session</h4>
+<pre><code class="language-text">exit
+</code></pre>
+<p>Run exit in Meterpreter to end that session; confirm in msfconsole with sessions -l. Closing a client does not guarantee removal of arbitrary artifacts from a target; restore your disposable lab snapshot as needed.</p>
+<p><strong>Troubleshooting:</strong> missing commands reflect session/platform capabilities. An unexpected account or host means stop and verify the correct lab session. Avoid keylogging, webcam access, credential dumping, log clearing and timestamp alteration for ordinary inventory.</p>
+<p><strong>Cleanup:</strong> exit the intended lab session, confirm it is gone from sessions -l, and restore disposable target state if the wider lab created artifacts.</p>
+<p><strong>Reference:</strong> <a href="https://docs.metasploit.com/docs/using-metasploit/advanced/meterpreter/meterpreter-basics.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-msfvenom"></a></p>
+<h2 id="msfvenom">msfvenom</h2>
+<p>Inspect Framework payload metadata and supported output formats. Installed with Metasploit Framework.</p>
+<h3 id="install-and-verify-36">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy metasploit-framework
+sudo apt install metasploit-framework
+msfvenom --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-36">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for the examples below. Payload generation can create executable artifacts; real payload behavior depends on selected options, architecture and target.</p>
+<pre><code class="language-bash">msfvenom -l payloads
+msfvenom -l formats
+msfvenom -l encoders
+</code></pre>
+<p>The listing type after <code>-l</code> is required; the old bare <code>-l</code> is incomplete. Use listings to identify actual names from your installed Framework rather than copying architecture-specific names from an old sheet.</p>
+<h4 id="inspect-an-example-payload39s-requirements">Inspect an example payload&#39;s requirements</h4>
+<pre><code class="language-bash">msfvenom -p windows/meterpreter/reverse_tcp --list-options
+</code></pre>
+<p>This prints metadata/options instead of generating an executable. Confirm the name exists in your installed list. LHOST must be a callback address reachable from the authorized lab target; it is not always your default LAN IP. LPORT is the chosen callback/listener port. Reverse and bind payloads use opposite connection directions.</p>
+<h4 id="plan-a-controlled-experiment">Plan a controlled experiment</h4>
+<p>Match target OS/architecture, payload options, listener type and routing before following an authorized course lab. A file extension does not change architecture. Staged and stageless payload names differ. Encoding is not encryption and does not guarantee antivirus evasion. Never distribute a disguised backdoor as a file-sharing example.</p>
+<p><strong>Troubleshooting:</strong> a nonexistent payload is a version/name mismatch. Connectivity failures may be routing/NAT/firewall rather than payload generation. An executable opening does not guarantee a session.</p>
+<p><strong>Cleanup:</strong> these inspection commands create no payload. Delete only your own confirmed lab artifacts after stopping matching sessions/listeners, or restore the disposable VM snapshot.</p>
+<p><strong>Reference:</strong> <a href="https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-netcat"></a></p>
+<h2 id="netcat--nc">Netcat / nc</h2>
+<p>Open simple TCP clients/listeners for local protocol and connection exercises. This guide targets netcat-openbsd, not every nc implementation.</p>
+<h3 id="install-and-verify-37">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy netcat-openbsd
+sudo apt install netcat-openbsd
+nc -h
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-37">Use it in practice</h3>
+<p><strong>Impact:</strong> LISTEN, NETWORK and WRITE. Netcat traffic here is unauthenticated and unencrypted. Prefer SSH for private remote files.</p>
+<h4 id="two-terminal-conversation">Two-terminal conversation</h4>
+<p>Terminal A:</p>
+<pre><code class="language-bash">nc -l 127.0.0.1 2222
+</code></pre>
+<p>Terminal B:</p>
+<pre><code class="language-bash">nc 127.0.0.1 2222
+</code></pre>
+<p>Type a line in either terminal; it appears at the other endpoint. Loopback confines the exercise to this computer. Ctrl+C closes the run.</p>
+<h4 id="transfer-a-small-local-file">Transfer a small local file</h4>
+<p>Receiver, terminal A:</p>
+<pre><code class="language-bash">nc -l 127.0.0.1 2222 &gt; received.txt
+</code></pre>
+<p>Sender, terminal B:</p>
+<pre><code class="language-bash">printf &#39;transfer example\n&#39; &gt; original.txt
+nc -N 127.0.0.1 2222 &lt; original.txt
+sha256sum original.txt
+</code></pre>
+<p>After the receiver exits, run <code>sha256sum received.txt</code> there and compare. <code>-N</code> closes the write side after stdin EOF in OpenBSD nc. <code>&gt;</code> overwrites an existing destination. The old <code>&lt; filename &gt;</code> trailing operator is invalid shell syntax.</p>
+<h4 id="port-check">Port check</h4>
+<pre><code class="language-bash">nc -vz -w 3 127.0.0.1 8000
+</code></pre>
+<p>This attempts a connection to one local port. A successful TCP connection does not prove the application is healthy.</p>
+<p><strong>Troubleshooting:</strong> <code>-N</code> not supported suggests a different nc implementation. Check local help instead of assuming flags. <code>-k</code> keeps listeners serving; it does not provide framing or checksums.</p>
+<p><strong>Cleanup:</strong> close all lab listeners and delete only original.txt/received.txt if created for the exercise.</p>
+<p><strong>Reference:</strong> <a href="https://manpages.debian.org/stable/netcat-openbsd/nc.1.en.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-openssh"></a></p>
+<h2 id="openssh--ssh-and-scp">OpenSSH / ssh and scp</h2>
+<p>Log in and copy files over encrypted authenticated connections. Client installation does not install an SSH server.</p>
+<h3 id="install-and-verify-38">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy openssh-client
+sudo apt install openssh-client
+ssh -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-38">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; scp WRITES destination files. Prerequisites: an authorized lab SSH server/account and a trusted way to verify its host-key fingerprint.</p>
+<pre><code class="language-bash">ssh labuser@192.168.56.20
+</code></pre>
+<p>Verify the fingerprint before accepting a first connection. A changed host-key warning can indicate reinstall, wrong host or interception; investigate rather than deleting known_hosts blindly. Enter the account&#39;s password when requested.</p>
+<h4 id="keys-and-copies">Keys and copies</h4>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -f ~/.ssh/parrot_lab_ed25519
+ssh -i ~/.ssh/parrot_lab_ed25519 labuser@192.168.56.20
+scp ./notes.txt labuser@192.168.56.20:~/
+scp labuser@192.168.56.20:~/example.txt ./example-copy.txt
+</code></pre>
+<p>Use a passphrase and decline overwriting existing keys. Public-key authentication requires provisioning the <code>.pub</code> key on the server first; key creation alone does not grant access. Never share/commit the private key. scp paths can overwrite files; choose fresh destinations.</p>
+<h4 id="ports-and-diagnosis">Ports and diagnosis</h4>
+<pre><code class="language-bash">ssh -p 2222 labuser@192.168.56.20
+scp -P 2222 ./notes.txt labuser@192.168.56.20:~/
+</code></pre>
+<p>SSH uses lowercase <code>-p</code>; scp uses uppercase <code>-P</code> for ports. <code>ssh -v</code> provides diagnostics; redact before sharing.</p>
+<p><strong>Troubleshooting:</strong> refused means no listener/rejection; timeout suggests routing/filtering; permission denied concerns authentication/authorization. Starting a server is a separate explicit administration task.</p>
+<p><strong>Cleanup:</strong> use exit in the remote shell. Remove unused lab public keys from authorized_keys deliberately, then retire the corresponding private key after confirming it is no longer needed.</p>
+<p><strong>Reference:</strong> <a href="https://man.openbsd.org/ssh">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-python-http-server"></a></p>
+<h2 id="python-http-server">Python HTTP server</h2>
+<p>Temporarily serve a dedicated folder for local file inspection and download exercises. Not a production server.</p>
+<h3 id="install-and-verify-39">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy python3
+sudo apt install python3
+python3 --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-39">Use it in practice</h3>
+<p><strong>Impact:</strong> WRITE and LISTEN; downloads are NETWORK. The server provides no built-in authentication or transport encryption in this basic workflow.</p>
+<pre><code class="language-bash">share_dir=$(mktemp -d /tmp/parrot-share.XXXXXX)
+printf &#39;hello from lab\n&#39; &gt; &quot;$share_dir/hello.txt&quot;
+python3 -m http.server 8000 --bind 127.0.0.1 --directory &quot;$share_dir&quot;
+</code></pre>
+<p>Keep this terminal open. The explicit bind confines access to loopback. The dedicated directory avoids serving your entire home, including private files. Directory contents may be listed.</p>
+<h4 id="verify-in-another-terminal">Verify in another terminal</h4>
+<pre><code class="language-bash">curl -i http://127.0.0.1:8000/hello.txt
+curl -i http://127.0.0.1:8000/missing.txt
+</code></pre>
+<p>Expect 200 with your text, and 404 for the missing path. This server serves files; it does not implement an API, upload handler or database application.</p>
+<h4 id="deliberate-lab-lan-sharing">Deliberate lab LAN sharing</h4>
+<p>Only when another authorized lab computer needs access, replace the bind address with your actual lab-interface IP and consider its firewall/routing. Do not use <code>0.0.0.0</code> casually on an untrusted network. Ports above 1023 avoid root privileges.</p>
+<p><strong>Troubleshooting:</strong> address-in-use means another listener occupies the port; choose a free port and update requests. Connection refused may mean the server stopped. A 404 means an HTTP response occurred but the path is absent.</p>
+<p><strong>Cleanup:</strong> Ctrl+C in the original terminal, then <code>rm -- &quot;$share_dir/hello.txt&quot;</code>, <code>rmdir -- &quot;$share_dir&quot;</code>, and <code>unset share_dir</code> there. Remove only this known temporary data.</p>
+<p><strong>Reference:</strong> <a href="https://docs.python.org/3/library/http.server.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-crunch"></a></p>
+<h2 id="crunch">Crunch</h2>
+<p>Generate candidate strings from an explicit character set for small controlled exercises. It does not authenticate or crack anything by itself.</p>
+<h3 id="install-and-verify-40">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy crunch
+sudo apt install crunch
+crunch --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-40">Use it in practice</h3>
+<p><strong>Impact:</strong> WRITE; output can grow exponentially. Some builds show usage with no arguments rather than --help; inspect local usage.</p>
+<pre><code class="language-bash">crunch 2 2 ab12 -o crunch-demo.txt
+wc -l crunch-demo.txt
+head crunch-demo.txt
+</code></pre>
+<p>Two positions over four characters produce 4^2 = 16 lines. The first two numbers are minimum and maximum lengths. Review the output before using it in any other tool.</p>
+<h4 id="reproduce-the-original-example-accurately">Reproduce the original example accurately</h4>
+<pre><code class="language-bash">crunch 4 4 012345abcdef -o crunch-four.txt
+wc -l crunch-four.txt
+</code></pre>
+<p>There are 12 characters, producing 12^4 = 20,736 candidates. Each fixed-width line also has a newline; disk use grows with both length and candidate count. Increasing to long ranges can fill storage quickly.</p>
+<h4 id="decide-whether-generation-helps">Decide whether generation helps</h4>
+<p>For a training service with a known small candidate set, an explicit three-line test file is usually enough. Generating every possible password is not an efficient general recovery method. Respect account lockouts when any list is used for authentication.</p>
+<p><strong>Troubleshooting:</strong> output-path errors need a writable directory; huge estimates call for reducing the range rather than blindly continuing. Stop with Ctrl+C if the generated size is unexpected.</p>
+<p><strong>Cleanup:</strong> delete only the two lab-generated files after reviewing them. Do not publish wordlists containing private personal details or actual secrets.</p>
+<p><strong>Reference:</strong> <a href="https://sourceforge.net/projects/crunch-wordlist/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-hydra"></a></p>
+<h2 id="hydra">Hydra</h2>
+<p>Test a small, agreed set of login attempts against a designated training account. Different protocols require different modules.</p>
+<h3 id="install-and-verify-41">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy hydra
+sudo apt install hydra
+hydra -h
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-41">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; can trigger lockouts/audit events. Use a disposable local SSH service with a labuser account you created for training and an agreed three-attempt allowance. Do not use your daily account.</p>
+<pre><code class="language-bash">hydra -U ssh
+printf &#39;%s\n&#39; wrong-demo-1 wrong-demo-2 LAB_ONLY_CHANGE_ME &gt; lab-passwords.txt
+hydra -l labuser -P lab-passwords.txt -t 1 -f ssh://127.0.0.1
+</code></pre>
+<p>The example does not create an SSH server/account. Replace the final dummy candidate with the known disposable lab password only in your private test file. <code>-l</code> is one user; <code>-P</code> is a password file; <code>-t 1</code> limits workers; <code>-f</code> stops after success on the host. A service may enforce lockouts after even fewer attempts; confirm first.</p>
+<h4 id="html-form-preparation">HTML form preparation</h4>
+<pre><code class="language-bash">hydra -U http-post-form
+</code></pre>
+<p>Before writing a form test, capture the actual action path, POST fields, cookies/CSRF handling and reliable failure/success marker. Placeholders are case-sensitive <code>^USER^</code> and <code>^PASS^</code>; <code>^user^</code> is incorrect. HTTP Basic Auth and an HTML form are different protocols/workflows. Do not substitute a generic form string into a live service.</p>
+<p><strong>Troubleshooting:</strong> zero successes can reflect protocol mismatch, account lockout, dynamic CSRF or incorrect markers rather than wrong candidates. A reported hit needs a single manual confirmation using the designated account.</p>
+<p><strong>Cleanup:</strong> remove private lab candidate/result files, end the dedicated SSH test service if you started it, and remove/reset the disposable account according to your lab setup. Do not retain a known-password file in Git.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/vanhauser-thc/thc-hydra">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-medusa"></a></p>
+<h2 id="medusa">Medusa</h2>
+<p>Perform module-specific authentication checks in a bounded training environment. Use it as an alternative to Hydra, not a redundant extra run.</p>
+<h3 id="install-and-verify-42">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy medusa
+sudo apt install medusa
+medusa -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-42">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; can lock accounts. Prerequisites: a disposable local SSH service/account and a verified small attempt budget.</p>
+<pre><code class="language-bash">medusa -d
+medusa -M ssh -q
+</code></pre>
+<p><code>-d</code> lists the modules actually compiled into your installation. <code>-M ssh -q</code> documents the selected module. The available modules vary by build; a copied static list is unreliable.</p>
+<h4 id="one-known-test-credential">One known test credential</h4>
+<pre><code class="language-bash">read -r -s -p &#39;Disposable lab password: &#39; lab_password
+printf &#39;\n&#39;
+medusa -h 127.0.0.1 -u labuser -p &quot;$lab_password&quot; -M ssh -t 1 -f
+unset lab_password
+</code></pre>
+<p>Use only a disposable password: expanded arguments may be visible in the local process list despite not appearing literally in shell history. <code>-h</code> is one host; <code>-u</code> one username; <code>-p</code> one password; <code>-M</code> the module; <code>-t 1</code> one login worker; <code>-f</code> stops this host after a valid credential. This confirms a known account rather than guessing a large list.</p>
+<h4 id="input-files">Input files</h4>
+<p><code>-H</code>, <code>-U</code> and <code>-P</code> take host, user and password files. Inspect attempt counts before combining files. A generic HTTP module may not implement your application’s form/CSRF flow; inspect <code>medusa -M http -q</code> and any separate web-form module actually present.</p>
+<p><strong>Troubleshooting:</strong> module absence requires a supported build or another appropriate tool, not a guessed module name. Read network errors and account policy before interpreting authentication failures.</p>
+<p><strong>Cleanup:</strong> close the test session and reset/remove designated lab credentials. Keep audit output private and redact before sharing.</p>
+<p><strong>Reference:</strong> <a href="http://foofus.net/goons/jmk/medusa/medusa.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-sqlmap"></a></p>
+<h2 id="sqlmap">sqlmap</h2>
+<p>Validate suspected SQL injection in your own test application using a captured raw request and a single chosen parameter.</p>
+<h3 id="install-and-verify-43">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy sqlmap
+sudo apt install sqlmap
+sqlmap --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-43">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK; active tests can modify application state or burden a database. Prerequisites: a disposable authorized app/database and a raw HTTP request for a real database-backed input. A static Python file server is not an SQL-injection lab.</p>
+<h4 id="prepare-a-request">Prepare a request</h4>
+<p>Capture the intended application request in Burp, save the raw request including headers/blank line/body to <code>search.req</code>, and protect cookies/tokens. Identify the parameter name you actually intend to test.</p>
+<pre><code class="language-bash">sqlmap -r search.req -p q --level=1 --risk=1 --threads=1
+</code></pre>
+<p>Replace q with the selected parameter. <code>-r</code> supplies request bytes; <code>-p</code> narrows parameter selection; risk/level limit certain tests but do not make the operation passive. Leave prompts interactive while learning.</p>
+<h4 id="proxy-and-https-context">Proxy and HTTPS context</h4>
+<pre><code class="language-bash">sqlmap -r search.req -p q --level=1 --risk=1 --threads=1 --proxy=http://127.0.0.1:8080
+</code></pre>
+<p>This needs Burp or another proxy actually listening there. Use <code>--force-ssl</code> only when the captured request should use HTTPS. <code>--force-ssl461</code> is invalid. Do not use <code>--batch</code> to skip decisions before understanding them.</p>
+<h4 id="interpret-results">Interpret results</h4>
+<p>A suspected injection needs reproducible evidence and application/database context. Session expiry, WAF responses and unstable pages can distort testing. Review logs and compare a baseline before claiming a finding. No data-dump/OS-shell step is required to document an injection.</p>
+<p><strong>Troubleshooting:</strong> re-capture stale requests, verify Host/content type/CSRF state and test a single input. Use a fresh disposable database when repeatability matters.</p>
+<p><strong>Cleanup:</strong> stop the tool and remove or redact saved request/session data; restore the disposable database from its snapshot if changed.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/sqlmapproject/sqlmap/wiki/Usage">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-iw"></a></p>
+<h2 id="iw">iw</h2>
+<p>Inspect modern Linux wireless interfaces, driver capabilities and connection state.</p>
+<h3 id="install-and-verify-44">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy iw
+sudo apt install iw
+iw --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-44">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT here; a scan sends/receives wireless traffic and can affect connectivity. Requires actual supported wireless hardware, not a VM&#39;s virtual Ethernet adapter.</p>
+<pre><code class="language-bash">iw dev
+iw list
+iw reg get
+</code></pre>
+<p><code>iw dev</code> shows current wireless devices/interfaces. <code>iw list</code> shows PHY capabilities including supported modes. Regulatory information is not permission to transmit on every listed channel; obey the actual local rules.</p>
+<h4 id="inspect-your-connection">Inspect your connection</h4>
+<pre><code class="language-bash">iw dev wlan0 link
+</code></pre>
+<p>Replace wlan0 with a name from iw dev. It reports association details where supported. “Not connected” is a state, not necessarily a driver failure.</p>
+<h4 id="scan-only-when-needed">Scan only when needed</h4>
+<pre><code class="language-bash">sudo iw dev wlan0 scan
+</code></pre>
+<p>This asks for a scan on the specified interface; availability depends on driver/state/permissions. Use NetworkManager&#39;s normal connection workflow instead of manually competing with its control.</p>
+<p><strong>Troubleshooting:</strong> no wireless devices in a VM usually means the compatible USB adapter has not been passed through. Monitor mode requires driver/hardware support. A soft/hard block may require checking rfkill or a physical switch; do not assume a missing interface is fixed by changing its name.</p>
+<p><strong>Cleanup:</strong> these inspection commands require none. For mode changes, follow the dedicated airmon-ng guide&#39;s restoration steps using the actual resulting interface name.</p>
+<p><strong>Reference:</strong> <a href="https://wireless.docs.kernel.org/en/latest/en/users/documentation/iw.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-airmon-ng"></a></p>
+<h2 id="airmon-ng">airmon-ng</h2>
+<p>Manage monitor-mode interfaces for supported Aircrack-ng hardware in an authorized wireless lab.</p>
+<h3 id="install-and-verify-45">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy aircrack-ng
+sudo apt install aircrack-ng
+airmon-ng --help
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-45">Use it in practice</h3>
+<p><strong>Impact:</strong> CHANGE and DISCONNECT. Never do this over the only connection you need for remote access. Have a local recovery path.</p>
+<pre><code class="language-bash">iw dev
+iw list
+sudo airmon-ng check
+sudo airmon-ng start wlan0
+iw dev
+</code></pre>
+<p>Replace wlan0 with your actual adapter. Check supported interface modes first. Read the created monitor interface name; it is not guaranteed to be wlan0mon. <code>check</code> reports conflicting processes; it does not automatically kill them.</p>
+<h4 id="conflicts">Conflicts</h4>
+<p><code>sudo airmon-ng check kill</code> stops interfering processes and may disconnect networking. Use it only if the conflict is understood and you can recover locally. A monitor interface does not imply injection support or permission to capture other people&#39;s traffic.</p>
+<h4 id="restore-normal-networking">Restore normal networking</h4>
+<pre><code class="language-bash">sudo airmon-ng stop wlan0mon
+sudo systemctl restart NetworkManager
+nmcli device status
+</code></pre>
+<p>Use the actual monitor name. Reconnect your saved profile if necessary. Restarting NetworkManager can affect other active network connections.</p>
+<p><strong>Troubleshooting:</strong> a VM needs compatible USB wireless hardware passed through. An unsupported driver cannot be fixed by merely using legacy iwconfig commands. Do not change regulatory settings to evade hardware/channel restrictions.</p>
+<p><strong>Cleanup:</strong> stop the monitor interface, restore your original connection and verify managed state. Keep any permitted capture files protected and delete unneeded captures according to the lab&#39;s scope.</p>
+<p><strong>Reference:</strong> <a href="https://www.aircrack-ng.org/doku.php?id=airmon-ng">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-wireshark"></a></p>
+<h2 id="wireshark">Wireshark</h2>
+<p>Inspect network packets visually with display filters and protocol detail panes.</p>
+<h3 id="install-and-verify-46">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy wireshark
+sudo apt install wireshark
+wireshark --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-46">Use it in practice</h3>
+<p><strong>Impact:</strong> CAPTURE/WRITE, potentially sensitive traffic. Limit exercises to your own loopback traffic. Run the GUI as a normal user, not as root.</p>
+<h4 id="capture-setup">Capture setup</h4>
+<p>If the installer asks whether non-superusers may capture, choose according to your machine&#39;s access policy. On Debian-style packaging, <code>sudo dpkg-reconfigure wireshark-common</code> can revisit capture permissions; only authorized users should join the wireshark group. Log out/in after group changes. Reading an existing capture does not require live-capture privilege.</p>
+<h4 id="practical-local-capture">Practical local capture</h4>
+<ol>
+<li>Start the local Python HTTP lab.</li>
+<li>Open Wireshark and select loopback (<code>lo</code>) if capture permission is configured.</li>
+<li>Set capture filter <code>tcp port 8000</code> before starting.</li>
+<li>Make one request with curl, then stop capture promptly.</li>
+<li>Apply display filter <code>http</code> or <code>tcp.port == 8000</code> and select a packet to inspect headers and bytes.</li>
+</ol>
+<p>Capture filters and display filters use different syntax. A plaintext HTTP body can be visible; encrypted HTTPS payloads normally are not readable merely by capturing them.</p>
+<h4 id="saveread">Save/read</h4>
+<p>Save as a new pcapng file, then reopen it to verify it contains the intended traffic. Use Follow TCP Stream only on traffic you are authorized to inspect; it can expose complete application exchanges.</p>
+<p><strong>Troubleshooting:</strong> no packets may mean wrong interface/filter, no generated traffic or missing permissions. Do not use sudo on the entire GUI as the routine fix.</p>
+<p><strong>Cleanup:</strong> stop capture, close your test server, and restrict/delete captures containing sensitive data before sharing.</p>
+<p><strong>Reference:</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-tcpdump"></a></p>
+<h2 id="tcpdump">tcpdump</h2>
+<p>Capture a narrowly filtered packet trace from a specific interface for diagnosis.</p>
+<h3 id="install-and-verify-47">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy tcpdump
+sudo apt install tcpdump
+tcpdump --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-47">Use it in practice</h3>
+<p><strong>Impact:</strong> CAPTURE and WRITE. Keep the example on loopback and a known test port.</p>
+<pre><code class="language-bash">sudo tcpdump -D
+sudo tcpdump -i lo -nn -c 10 &#39;tcp port 8000&#39;
+</code></pre>
+<p><code>-D</code> lists interfaces; <code>-i lo</code> selects loopback; <code>-nn</code> avoids name/port-name lookups; <code>-c 10</code> stops after ten matching packets. If not enough packets arrive, Ctrl+C stops the capture. Generate requests in the HTTP lab from another terminal.</p>
+<h4 id="save-then-inspect">Save then inspect</h4>
+<pre><code class="language-bash">sudo tcpdump -i lo -nn -c 10 -w /tmp/parrot-http.pcap &#39;tcp port 8000&#39;
+tcpdump -nn -r /tmp/parrot-http.pcap
+</code></pre>
+<p>Choose a fresh output path; the example can overwrite an existing file of that name. Root-owned captures may require a deliberate ownership/permission adjustment or a privileged read under local policy. Do not make them world-readable just for convenience.</p>
+<h4 id="interpret-carefully">Interpret carefully</h4>
+<p>Packet flags, endpoints and sequence numbers help identify handshake/retransmission behavior. A capture only reflects packets visible at that point, not every event on the network. <code>-A</code> prints payload bytes and can expose secrets; avoid broad unfiltered payload dumps.</p>
+<p><strong>Troubleshooting:</strong> wrong interface, filter or privilege often explains an empty capture. Check that traffic is actually generated after capture starts. A checksum-offload warning may not represent on-wire corruption.</p>
+<p><strong>Cleanup:</strong> stop the capture, confirm no background process remains, and remove only your known lab pcap when no longer needed.</p>
+<p><strong>Reference:</strong> <a href="https://www.tcpdump.org/manpages/tcpdump.1.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-tshark"></a></p>
+<h2 id="tshark">TShark</h2>
+<p>Use Wireshark protocol analysis from the terminal, especially for reading saved captures and extracting fields.</p>
+<h3 id="install-and-verify-48">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy tshark
+sudo apt install tshark
+tshark --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-48">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for saved files; live capture CAPTURES/WRITES traffic. Use the packet file from your own lab.</p>
+<pre><code class="language-bash">tshark -r /tmp/parrot-http.pcap
+tshark -r /tmp/parrot-http.pcap -Y http.request
+</code></pre>
+<p><code>-r</code> reads an existing capture. <code>-Y</code> is a display filter, evaluated after protocol decoding. HTTP requests may not be decoded if the chosen port/protocol isn&#39;t recognized or if traffic is encrypted/incomplete.</p>
+<h4 id="extract-useful-columns">Extract useful columns</h4>
+<pre><code class="language-bash">tshark -r /tmp/parrot-http.pcap -Y http.request -T fields -e frame.number -e ip.src -e http.request.method -e http.request.uri
+</code></pre>
+<p><code>-T fields</code> produces selected fields rather than the default packet summary. Multiple values/escaping require care before importing into a spreadsheet; this output is not automatically a robust CSV for every use.</p>
+<h4 id="limited-live-capture">Limited live capture</h4>
+<pre><code class="language-bash">tshark -i lo -f &#39;tcp port 8000&#39; -c 10
+</code></pre>
+<p>Use configured capture privileges, not a root GUI. <code>-f</code> is a capture filter; <code>-Y</code> is a display filter. Ctrl+C stops an idle capture if ten matching packets never arrive.</p>
+<p><strong>Troubleshooting:</strong> file-permission errors need proper ownership/access, not weakening all permissions. For nonstandard HTTP ports you can investigate Decode As options documented for your build. Do not equate absence under a filter with absence in the original file.</p>
+<p><strong>Cleanup:</strong> stop live capture and protect/delete lab packet files as appropriate.</p>
+<p><strong>Reference:</strong> <a href="https://www.wireshark.org/docs/man-pages/tshark.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-find"></a></p>
+<h2 id="find">find</h2>
+<p>Locate filesystem entries by name, type, size and other metadata. It searches paths, not file contents.</p>
+<h3 id="install-and-verify-49">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy findutils
+sudo apt install findutils
+find --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-49">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for these examples. Start with a narrow directory.</p>
+<pre><code class="language-bash">find ~/Documents -type f -name &#39;*.pdf&#39;
+find ~/Documents -type f -size +10M -ls
+find . -type f -mtime -7 -print
+</code></pre>
+<p>Quote globs so find receives the pattern rather than the shell expanding it. <code>-type f</code> selects regular files; <code>+10M</code> selects larger files; <code>-mtime -7</code> uses find&#39;s day-based modification-age semantics, not a calendar-week boundary.</p>
+<h4 id="safely-process-files-with-spaces">Safely process files with spaces</h4>
+<pre><code class="language-bash">find . -type f -name &#39;*.txt&#39; -exec wc -l -- {} +
+</code></pre>
+<p>Find supplies filenames as separate arguments. <code>+</code> batches arguments for fewer executions; it must terminate the <code>-exec</code> expression. Do not parse <code>find</code> output with whitespace splitting.</p>
+<h4 id="verify-a-result">Verify a result</h4>
+<pre><code class="language-bash">find . -type f -name &#39;notes.txt&#39; -ls
+</code></pre>
+<p><code>-ls</code> prints metadata; it does not read the document. Use ripgrep for content search.</p>
+<p><strong>Troubleshooting:</strong> permission errors may be normal outside your directories. Narrow the search rather than running all searches as root. <code>-delete</code> and <code>-exec rm</code> are destructive and unnecessary for locating a file. Preview exact matches before adding any action.</p>
+<p><strong>Cleanup:</strong> these examples do not change files, so there is nothing to undo.</p>
+<p><strong>Reference:</strong> <a href="https://www.gnu.org/software/findutils/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-less"></a></p>
+<h2 id="less">less</h2>
+<p>Read long files without loading an editor; search and navigate logs interactively.</p>
+<h3 id="install-and-verify-50">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy less
+sudo apt install less
+less --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-50">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT. Open a text file you own:</p>
+<pre><code class="language-bash">less -N notes.txt
+</code></pre>
+<p><code>-N</code> shows line numbers. Press Space/PageDown for the next screen, <code>b</code> for the previous screen, <code>g</code> for the beginning, <code>G</code> for the end and <code>q</code> to quit.</p>
+<h4 id="find-an-error">Find an error</h4>
+<p>Type <code>/ERROR</code> then Enter. Press <code>n</code> for the next match and <code>N</code> for the previous. Search is generally case-sensitive; <code>-i</code> makes searches without uppercase letters case-insensitive.</p>
+<pre><code class="language-bash">less -i app.log
+</code></pre>
+<h4 id="follow-a-growing-log">Follow a growing log</h4>
+<pre><code class="language-bash">less +F app.log
+</code></pre>
+<p>Follow mode waits for appended data. Press Ctrl+C to return to normal navigation, then <code>q</code> to exit. For systemd services, journalctl can select the relevant logs before reading them.</p>
+<p><strong>Troubleshooting:</strong> a missing file is a path problem; check pwd and ls. Long lines can be horizontally navigated with arrow keys when using <code>-S</code>. Avoid <code>-r</code> on untrusted logs because raw control characters may affect your terminal. <code>less</code> is a reader, not a sandbox.</p>
+<p><strong>Cleanup:</strong> quit the viewer. It does not edit the file, although search/history preferences may be stored in your account.</p>
+<p><strong>Reference:</strong> <a href="https://www.greenwoodsoftware.com/less/faq.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-sha256sum"></a></p>
+<h2 id="sha256sum">sha256sum</h2>
+<p>Calculate SHA-256 digests to compare file bytes or verify against a trusted publisher checksum.</p>
+<h3 id="install-and-verify-51">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy coreutils
+sudo apt install coreutils
+sha256sum --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-51">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT; creating checksum lists WRITES files. Coreutils is a shared base package; do not remove it after this exercise.</p>
+<pre><code class="language-bash">sha256sum downloaded.iso
+</code></pre>
+<p>Compare all hexadecimal characters with the checksum obtained from the publisher over a trusted channel. A checksum copied from the same untrusted source as the file does not establish authenticity.</p>
+<h4 id="verify-a-small-file-later">Verify a small file later</h4>
+<pre><code class="language-bash">printf &#39;lab notes\n&#39; &gt; checksum-demo.txt
+sha256sum checksum-demo.txt &gt; checksum-demo.sha256
+sha256sum -c checksum-demo.sha256
+</code></pre>
+<p>Expected: <code>checksum-demo.txt: OK</code> before any modifications. Changing even one byte will usually yield FAILED with a nonzero exit status. Keep checksum manifests out of directories where an attacker can silently modify both files if you need security assurance.</p>
+<h4 id="compare-two-copies">Compare two copies</h4>
+<pre><code class="language-bash">sha256sum original.txt copied.txt
+</code></pre>
+<p>Matching digests are strong evidence of matching bytes, not origin or safety. For direct local comparison use <code>cmp original.txt copied.txt</code>.</p>
+<p><strong>Troubleshooting:</strong> <code>-c</code> resolves manifest filenames relative to the working directory. Run it from the expected folder and check names before assuming corruption. Line-ending conversion can legitimately change a digest.</p>
+<p><strong>Cleanup:</strong> remove only <code>checksum-demo.txt</code> and <code>checksum-demo.sha256</code> if you created them for this exercise.</p>
+<p><strong>Reference:</strong> <a href="https://www.gnu.org/software/coreutils/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-jq"></a></p>
+<h2 id="jq">jq</h2>
+<p>Read, transform and validate JSON using composable filters.</p>
+<h3 id="install-and-verify-52">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy jq
+sudo apt install jq
+jq --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-52">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT and WRITE when redirecting output. Start with a known local fixture.</p>
+<pre><code class="language-bash">printf &#39;%s\n&#39; &#39;{&quot;tools&quot;:[{&quot;name&quot;:&quot;nmap&quot;,&quot;installed&quot;:true},{&quot;name&quot;:&quot;ffuf&quot;,&quot;installed&quot;:false}]}&#39; &gt; jq-demo.json
+jq . jq-demo.json
+jq -r &#39;.tools[].name&#39; jq-demo.json
+jq &#39;.tools[] | select(.installed == true)&#39; jq-demo.json
+</code></pre>
+<p><code>.</code> pretty-prints, <code>[]</code> iterates an array, <code>-r</code> emits raw strings, and select keeps matching objects. Quote filters so shell symbols are not interpreted.</p>
+<h4 id="check-a-report-and-write-a-new-file">Check a report and write a new file</h4>
+<pre><code class="language-bash">jq -e &#39;.tools | type == &quot;array&quot;&#39; jq-demo.json
+jq &#39;[.tools[] | select(.installed == true)]&#39; jq-demo.json &gt; jq-installed.json
+</code></pre>
+<p><code>-e</code> returns a useful success/failure exit status for Boolean/null results. Never redirect output to the input file directly; the shell truncates it before jq reads it. Write a new file, inspect it, then deliberately replace if needed.</p>
+<p><strong>Troubleshooting:</strong> parse errors can mean the input is HTML or newline-delimited JSON instead of the expected single document. A null result often means the field/path differs. Read a small fixture and confirm the schema.</p>
+<p><strong>Cleanup:</strong> remove the two demo JSON files if they are no longer needed; never publish reports containing tokens or personal data.</p>
+<p><strong>Reference:</strong> <a href="https://jqlang.org/manual/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-ripgrep"></a></p>
+<h2 id="ripgrep--rg">ripgrep / rg</h2>
+<p>Search file contents quickly with useful line numbers, file filters and explicit hidden-file handling.</p>
+<h3 id="install-and-verify-53">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy ripgrep
+sudo apt install ripgrep
+rg --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-53">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT; output can reveal secrets. Start inside your project, not the entire filesystem.</p>
+<pre><code class="language-bash">rg -n &#39;ERROR&#39; logs/
+rg -n -i &#39;openvpn&#39; docs/
+rg -n -F &#39;127.0.0.1&#39; .
+rg --files -g &#39;*.md&#39;
+</code></pre>
+<p><code>-n</code> prints line numbers; <code>-i</code> ignores case; <code>-F</code> treats the pattern literally instead of as regex. <code>--files</code> lists searchable filenames and <code>-g</code> constrains a glob.</p>
+<h4 id="search-hidden-configuration-deliberately">Search hidden configuration deliberately</h4>
+<pre><code class="language-bash">rg --hidden -n &#39;timeout&#39; .github/
+</code></pre>
+<p>By default rg respects ignore rules and skips hidden/binary files. <code>--hidden</code> includes hidden files but does not automatically disable every ignore rule. Use <code>--no-ignore</code> only when needed and keep the path narrow to avoid secrets/vendor output.</p>
+<h4 id="interpret-exit-codes">Interpret exit codes</h4>
+<p>0 normally means a match, 1 means no match, and 2 indicates an error. A no-match result is not necessarily a failed tool installation. In scripts, distinguish these conditions instead of treating every nonzero exit as a crash.</p>
+<p><strong>Troubleshooting:</strong> a missing result may be case, regex syntax, ignore rules, binary classification or the wrong working directory. Start with a known file and literal pattern. Do not copy sensitive matches into public issue reports.</p>
+<p><strong>Cleanup:</strong> these commands do not edit files; only remove a redirected report if you created one.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/kennykane9489/parrot-os-cheat-sheet/blob/main/https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-tmux"></a></p>
+<h2 id="tmux">tmux</h2>
+<p>Keep related terminal windows and panes in a session that survives client detachment.</p>
+<h3 id="install-and-verify-54">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy tmux
+sudo apt install tmux
+tmux -V
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-54">Use it in practice</h3>
+<p><strong>Impact:</strong> starts processes/sessions; commands inside panes have their own effects.</p>
+<pre><code class="language-bash">tmux new -s parrot-lab
+</code></pre>
+<p>Inside tmux the default prefix is Ctrl+B. Release it, then press <code>%</code> to split left/right or <code>&quot;</code> to split top/bottom. Prefix then an arrow selects a pane. Prefix then <code>c</code> creates a window; prefix then <code>n</code>/<code>p</code> changes windows.</p>
+<h4 id="detach-and-resume">Detach and resume</h4>
+<p>Press Ctrl+B then <code>d</code> to detach without stopping the programs. In a normal terminal:</p>
+<pre><code class="language-bash">tmux ls
+tmux attach -t parrot-lab
+</code></pre>
+<p>Detaching is not a cleanup step: an HTTP server, VPN or scanner can continue running in the session. Check what&#39;s running before leaving it unattended.</p>
+<h4 id="practical-arrangement">Practical arrangement</h4>
+<p>Put the local HTTP server in one pane and curl/ss in the other. This makes request and server logs visible together. Avoid displaying real passwords in either pane or screenshot.</p>
+<h4 id="end-deliberately">End deliberately</h4>
+<p>Stop foreground programs with their own graceful shutdown (often Ctrl+C), then type exit in shells. After confirming nothing important remains, <code>tmux kill-session -t parrot-lab</code> terminates that named session and its programs. Do not use kill-server as a routine cleanup because it affects all sessions.</p>
+<p><strong>Troubleshooting:</strong> “no server running” usually means no session exists. A different user/root account has a separate tmux context. If nested sessions confuse prefixes, detach and attach from a normal shell.</p>
+<p><strong>Cleanup:</strong> stop your own tasks gracefully before closing their shells or killing the specifically named disposable session.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/tmux/tmux/wiki/Getting-Started">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-btop"></a></p>
+<h2 id="btop">btop</h2>
+<p>Monitor CPU, memory, disks, network rates and processes interactively.</p>
+<h3 id="install-and-verify-55">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy btop
+sudo apt install btop
+btop --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-55">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT during viewing; process controls can terminate programs. Run as your normal user first.</p>
+<pre><code class="language-bash">btop
+</code></pre>
+<p>Use the on-screen help/menu for keys supported by your build. <code>q</code> quits. CPU percentages and memory figures need context: cached memory is not automatically wasted, and a momentary spike does not prove a fault.</p>
+<h4 id="practical-diagnosis">Practical diagnosis</h4>
+<ol>
+<li>Note idle CPU/memory before starting your local lab tool.</li>
+<li>Run a known benign task and watch its process and resource changes.</li>
+<li>Compare sustained behavior rather than judging one refresh.</li>
+<li>Quit btop and inspect application logs if resource use stays unexpectedly high.</li>
+</ol>
+<p>A process may use multiple CPU cores, so percentages must be interpreted using the interface&#39;s selected normalization. Network rate graphs reflect local interface counters, not application attribution by themselves.</p>
+<h4 id="avoid-accidental-termination">Avoid accidental termination</h4>
+<p>If selecting a process exposes signal/kill controls, read its PID/name and save work before taking action. Prefer stopping your own foreground tool from its original terminal rather than force-killing it in a monitor.</p>
+<p><strong>Troubleshooting:</strong> display issues can reflect unsupported terminal color/Unicode settings, limited window size or permissions for optional sensors. Open the menu/help and choose a compatible theme; installing a new GPU driver is not a generic fix.</p>
+<p><strong>Cleanup:</strong> q exits monitoring; it does not stop the processes you were observing. Close any lab process separately.</p>
+<p><strong>Reference:</strong> <a href="https://github.com/aristocratos/btop">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-openssl"></a></p>
+<h2 id="openssl">OpenSSL</h2>
+<p>Inspect certificates and create local test cryptographic material without assuming that an arbitrary certificate is trusted.</p>
+<h3 id="install-and-verify-56">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy openssl
+sudo apt install openssl
+openssl version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-56">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for reads; key/certificate creation WRITES sensitive files.</p>
+<pre><code class="language-bash">openssl x509 -in certificate.pem -noout -subject -issuer -dates -fingerprint -sha256
+</code></pre>
+<p>Use an actual PEM certificate. These fields describe identity claims/validity dates and a fingerprint, not a complete trust decision. A certificate can be well-formed and still be untrusted or for the wrong host.</p>
+<h4 id="create-a-loopback-only-test-certificate">Create a loopback-only test certificate</h4>
+<pre><code class="language-bash">umask 077
+openssl req -x509 -newkey rsa:2048 -sha256 -days 1 -keyout lab-key.pem -out lab-cert.pem -subj &#39;/CN=localhost&#39; -addext &#39;subjectAltName=DNS:localhost,IP:127.0.0.1&#39;
+</code></pre>
+<p>The command prompts for a private-key passphrase. Keep it private; a self-signed certificate is not automatically trusted by browsers. <code>umask 077</code> restricts new-file permissions in this shell; it remains in effect afterward. Use a separate test terminal if you do not want to change the original shell&#39;s mask.</p>
+<h4 id="inspect-your-generated-certificate">Inspect your generated certificate</h4>
+<pre><code class="language-bash">openssl x509 -in lab-cert.pem -noout -text
+openssl verify -CAfile lab-cert.pem lab-cert.pem
+</code></pre>
+<p>The verification trusts that file explicitly for this command; it does not install a system CA or establish external identity.</p>
+<p><strong>Troubleshooting:</strong> PEM parse failures may mean wrong file type or an HTML error page. TLS client failures also depend on chain, hostname and system time; do not disable validation globally.</p>
+<p><strong>Cleanup:</strong> remove only the lab certificate/private key after ensuring no test server needs them. Never commit private keys.</p>
+<p><strong>Reference:</strong> <a href="https://docs.openssl.org/master/man1/openssl/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-zap"></a></p>
+<h2 id="owasp-zap">OWASP ZAP</h2>
+<p>Inspect HTTP traffic and assess your own web application with a scoped proxy workflow. Passive analysis and active scans have different effects.</p>
+<h3 id="install-and-verify-57">Install and verify</h3>
+<p>Check whether your Parrot repositories provide a supported build:</p>
+<pre><code class="language-bash">apt policy zaproxy
+</code></pre>
+<p>If a candidate exists, install with <code>sudo apt install zaproxy</code> and launch <code>zaproxy</code>. Otherwise obtain the appropriate Linux package/installer from the <a href="https://www.zaproxy.org/download/">official ZAP download page</a>, verify its origin and follow that format&#39;s current Java/runtime instructions. Do not add another distribution&#39;s repository or assume every Linux installer bundles Java. Use the app&#39;s About dialog for its exact version.</p>
+<h3 id="use-it-in-practice-57">Use it in practice</h3>
+<p><strong>Impact:</strong> NETWORK and WRITE; active scans can change application state. Use your local disposable app.</p>
+<h4 id="launch-and-browse">Launch and browse</h4>
+<p>Launch ZAP from the installed desktop shortcut or its documented startup script. Choose a temporary/non-persisted session if appropriate for a first exercise. Use Manual Explore / the browser-launch workflow for your version rather than guessing proxy/CA settings.</p>
+<ol>
+<li>Browse the local HTTP lab and request hello.txt and missing.txt.</li>
+<li>Inspect the Sites tree and History to compare 200/404 responses.</li>
+<li>Review passive alerts as observations requiring context; missing headers in a toy file server do not prove a broadly exploitable defect.</li>
+<li>Add your own app to a named context/scope before any active testing.</li>
+</ol>
+<h4 id="first-active-test">First active test</h4>
+<p>Use only an intentionally disposable application/database with explicit permission. Review scope, authentication/session handling and scan policy before launching an active scan. Do not start with an unscoped “attack everything” action or a third-party production site.</p>
+<h4 id="evidence">Evidence</h4>
+<p>Save a report/session only if needed, knowing it may include requests, cookies and sensitive responses. Redact before sharing. A passing scan does not prove absence of vulnerabilities; automated coverage depends on explored routes and app state.</p>
+<p><strong>Troubleshooting:</strong> an unreachable browser may be waiting for proxy setup or an HTTPS CA configuration. Java/build requirements vary with distribution format; read the chosen official installer requirements.</p>
+<p><strong>Cleanup:</strong> stop scans, close proxy listeners/test browser and remove any external browser proxy/CA changes. Restore the disposable app/database as necessary.</p>
+<p><strong>Reference:</strong> <a href="https://www.zaproxy.org/getting-started/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-shellcheck"></a></p>
+<h2 id="shellcheck">ShellCheck</h2>
+<p>Analyze shell scripts for common quoting, portability and logic mistakes without executing them.</p>
+<h3 id="install-and-verify-58">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy shellcheck
+sudo apt install shellcheck
+shellcheck --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-58">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT. ShellCheck complements Bash syntax checking; neither proves that a script is safe to execute.</p>
+<h4 id="create-a-deliberately-flawed-fixture">Create a deliberately flawed fixture</h4>
+<pre><code class="language-bash">printf &#39;%s\n&#39; &#39;#!/bin/bash&#39; &#39;name=&quot;lab notes&quot;&#39; &#39;printf &quot;%s\n&quot; $name&#39; &gt; shellcheck-demo.sh
+shellcheck shellcheck-demo.sh
+bash -n shellcheck-demo.sh
+</code></pre>
+<p>ShellCheck should report unquoted expansion in this example. Bash -n can accept it because it is syntactically valid. Do not run the flawed script merely to check its syntax.</p>
+<h4 id="fix-quoting-and-recheck">Fix quoting and recheck</h4>
+<pre><code class="language-bash">printf &#39;%s\n&#39; &#39;#!/bin/bash&#39; &#39;name=&quot;lab notes&quot;&#39; &#39;printf &quot;%s\n&quot; &quot;$name&quot;&#39; &gt; shellcheck-demo.sh
+shellcheck shellcheck-demo.sh
+</code></pre>
+<p>Quoting preserves a single argument instead of unintended splitting/globbing. A clean report means no issue was found by that analysis, not complete correctness or harmless behavior.</p>
+<h4 id="work-on-a-real-script">Work on a real script</h4>
+<p>Set the correct shebang or <code>shellcheck -s bash script.sh</code> when appropriate. Read warning explanations before suppression. Use a narrow documented suppression only when you understand the invariant; do not disable all warnings to get a green check.</p>
+<p><strong>Troubleshooting:</strong> an unsupported shell/extension needs the correct parser assumption. External sourced files may need explicitly scoped analysis; avoid following untrusted source paths indiscriminately.</p>
+<p><strong>Cleanup:</strong> remove only shellcheck-demo.sh if created for the exercise.</p>
+<p><strong>Reference:</strong> <a href="https://www.shellcheck.net/">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-systemctl"></a></p>
+<h2 id="systemctl">systemctl</h2>
+<p>Inspect and control systemd units. Starting now and enabling at boot are separate operations.</p>
+<h3 id="install-and-verify-59">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy systemd
+sudo apt install systemd
+systemctl --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-59">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT for status; CHANGE/DISCONNECT for service control. systemd is normally part of Parrot; do not remove it as lab cleanup.</p>
+<pre><code class="language-bash">systemctl status NetworkManager --no-pager
+systemctl is-active NetworkManager
+systemctl is-enabled NetworkManager
+systemctl --failed
+</code></pre>
+<p>Status includes recent logs. is-active checks current runtime state; is-enabled checks boot/unit wiring, not current health. Some units are static and are not enabled like ordinary services.</p>
+<h4 id="optional-postgresql-lab-service">Optional PostgreSQL lab service</h4>
+<pre><code class="language-bash">sudo systemctl start postgresql
+systemctl status postgresql --no-pager
+</code></pre>
+<p>Use only if installed and needed. Start does not automatically configure every application that will use the service. Debian&#39;s meta-service may delegate to versioned clusters.</p>
+<h4 id="deliberate-control">Deliberate control</h4>
+<p><code>stop</code> halts a service now; <code>restart</code> stops/starts it and interrupts users. <code>enable</code> changes automatic activation; <code>disable</code> does not necessarily stop a running service. Do not restart networking over your sole remote connection.</p>
+<p><strong>Troubleshooting:</strong> “unit not found” means wrong unit name or missing package; list units/unit-files and consult the package. “System has not been booted with systemd” can be a container or different init environment. <code>daemon-reload</code> reloads unit definitions after edits; it is not an application-config reload.</p>
+<p><strong>Cleanup:</strong> stop only services you started for the lab and only if nothing else needs them. Restore any deliberate boot-setting changes to the recorded baseline.</p>
+<p><strong>Reference:</strong> <a href="https://www.freedesktop.org/software/systemd/man/latest/systemctl.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<p><a id="program-journalctl"></a></p>
+<h2 id="journalctl">journalctl</h2>
+<p>Read systemd journal entries by service, boot and time to diagnose the exact failure.</p>
+<h3 id="install-and-verify-60">Install and verify</h3>
+<pre><code class="language-bash">sudo apt update
+apt policy systemd
+sudo apt install systemd
+journalctl --version
+</code></pre>
+<p>Run the install only if APT shows a candidate from your configured Parrot repositories. Read the proposed changes. If no candidate exists, follow the upstream installation reference instead of adding Kali/Ubuntu repositories. Installation changes your system; version/help checks inspect it.</p>
+<h3 id="use-it-in-practice-60">Use it in practice</h3>
+<p><strong>Impact:</strong> INSPECT; redirected logs WRITE files and can reveal sensitive data. Start with a narrow selection.</p>
+<pre><code class="language-bash">journalctl -u NetworkManager -b -n 50 --no-pager
+journalctl -b -p warning --no-pager
+journalctl --since &#39;30 minutes ago&#39; --no-pager
+</code></pre>
+<p><code>-u</code> selects a unit, <code>-b</code> the current boot, <code>-n</code> the most recent count, and <code>--no-pager</code> prints directly. Priority warning includes warning and more severe entries. A service name must match the actual unit.</p>
+<h4 id="follow-a-specific-lab-service">Follow a specific lab service</h4>
+<pre><code class="language-bash">journalctl -u postgresql -f
+</code></pre>
+<p><code>-f</code> follows new entries; Ctrl+C ends viewing, not the service. Versioned PostgreSQL cluster units can have their own logs. Compare timestamps with the exact moment of your failing operation.</p>
+<h4 id="previous-boot">Previous boot</h4>
+<pre><code class="language-bash">journalctl --list-boots
+journalctl -b -1 -n 50 --no-pager
+</code></pre>
+<p>A previous boot is available only if the journal retained it. Missing historical logs do not prove no event occurred.</p>
+<p><strong>Troubleshooting:</strong> limited access may require a legitimate journal-reading group or sudo under your machine policy. An empty query may use the wrong unit/time range. Avoid clearing/vacuuming logs as a diagnostic step; it removes evidence and can affect retention policy.</p>
+<p><strong>Cleanup:</strong> Ctrl+C or q exits the viewer. Redact usernames, network identifiers and tokens before posting excerpts.</p>
+<p><strong>Reference:</strong> <a href="https://www.freedesktop.org/software/systemd/man/latest/journalctl.html">Official documentation</a>.</p>
+<p><a href="#jump-to-a-program">Back to top</a></p>
+<hr>
+<h2 id="local-viewing-and-checks">Local viewing and checks</h2>
+<p>Download/clone this repository, then open index.html directly for the styled version. It does not fetch external assets. Clipboard permissions vary for local files; when copying is unavailable it selects the command for manual copying.</p>
+<p>To serve the styled page locally, run this from the repository folder and visit <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>:</p>
+<pre><code class="language-bash">python3 -m http.server 8000 --bind 127.0.0.1
+</code></pre>
+<p>Stop with Ctrl+C. This shares the repository directory on loopback; do not start it from a folder containing private files.</p>
+<pre><code class="language-bash">python3 scripts/check_docs.py
+python3 -m unittest discover -s tests -v
+</code></pre>
+<p>Checks validate basic Markdown/link structure and shell syntax without executing the security examples. <a href="https://github.com/kennykane9489/parrot-os-cheat-sheet/blob/main/COMPATIBILITY.md">Compatibility</a>, <a href="https://github.com/kennykane9489/parrot-os-cheat-sheet/blob/main/VALIDATION.md">validation</a>, and <a href="https://github.com/kennykane9489/parrot-os-cheat-sheet/blob/main/CONTRIBUTING.md">contribution notes</a> record the limits. All essential tool instructions are above; the docs folder retains source guides and supplementary notes.</p>
+</main><footer class="footer">One page. Your tools. Your lab. <a href="#parrot-os-cheat-sheet">Back to top ↑</a></footer><div id="status" class="toast" role="status" aria-live="polite" hidden></div><noscript><p class="noscript">All commands remain readable. Use the jump links or your browser’s Find command; copy manually.</p></noscript></body></html>

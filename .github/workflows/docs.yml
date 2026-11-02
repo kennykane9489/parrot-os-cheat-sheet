@@ -20,3 +20,7 @@ jobs:
         run: python3 scripts/check_docs.py
       - name: Test checker failure paths
         run: python3 -m unittest discover -s tests -v
+      - name: Validate single-page navigation behavior
+        run: |
+          node --check assets/app.js
+          node tests/test_ui.mjs

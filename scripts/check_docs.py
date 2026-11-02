@@ -48,7 +48,7 @@ def parse(text):
 def check(root):
     root = root.resolve()
     errors, parsed, block_count = [], {}, 0
-    files = sorted(p for p in root.rglob('*.md') if '.git' not in p.parts)
+    files = sorted(p for p in root.rglob('*.md') if not {'.git', 'node_modules', '.venv', '__pycache__'}.intersection(p.parts))
     bash = shutil.which('bash')
     if not bash:
         return ['Bash is required'], 0, 0

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-02 — Full user guides and simpler layout
+
+- Returned to a single continuous cheat sheet in the original topic order.
+- Added 61 program guides with install steps, worked examples and troubleshooting.
+- Added an offline matte-black version with soft neumorphic surfaces, a jump selector and copy buttons.
+- Kept all instructions visible without a sidebar or mandatory page navigation.
+
 ## 2026-11-02 — Repository organization upgrade
 
 - Replaced the long landing page with a linked guide index.

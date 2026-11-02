@@ -11,7 +11,7 @@
 | Local links, Markdown structure and Bash syntax | Checked during package preparation | Syntax is not runtime correctness or full Markdown linting. |
 | Local HTTP and archive lab behavior | Smoke checks recorded in validation notes | Preparation environment is not Parrot. |
 | Security tools on Parrot | Pending runtime verification | Upstream references and local help must be compared with installed versions. |
-| GitHub Actions | Workflow provided | First hosted run happens after upload; not run on GitHub during preparation. |
+| GitHub Actions | Earlier revision passed; expanded checks provided for this revision | Inspect the workflow run associated with the latest commit. |
 | External source links | Reference list provided | No automatic availability check; sites may block automated clients. |
 
 See [validation notes](VALIDATION.md) for actual completed checks.
