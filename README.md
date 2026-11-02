@@ -2,7 +2,9 @@
 
 # Parrot OS Cheat Sheet
 
-One continuous reference for installing and using your tools. Each program has its setup, commands, practical examples and troubleshooting together. Updated November 2, 2026.
+A Parrot OS cheat sheet and Linux command reference for system administration, networking, troubleshooting, and authorized penetration testing. Each program brings installation steps, usage instructions, practical examples, and troubleshooting together in one continuous guide. Updated November 2, 2026.
+
+Learn Bash and APT basics, diagnose DNS and OpenVPN connections, and explore Nmap, Burp Suite, Wireshark, Gobuster, ffuf, SQLmap, Metasploit, NetExec, and SSH through practical examples for your own systems and authorized labs.
 
 **Find a tool:** use Ctrl+F (Cmd+F on Mac) or the jump links below. [Open the matte-black version](index.html) after downloading the repository, or serve it with the command below. GitHub renders this Markdown using its own theme; the styled version is index.html.
 
