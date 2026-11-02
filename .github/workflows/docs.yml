@@ -1,0 +1,22 @@
+name: Documentation checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Validate documents and shell syntax
+        run: python3 scripts/check_docs.py
+      - name: Test checker failure paths
+        run: python3 -m unittest discover -s tests -v
